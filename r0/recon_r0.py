@@ -2,32 +2,36 @@
 """voro-tree-qa R0 - reconnaissance of the Zurich tree register (Baumkataster).
 
 R0 is NOT a life. It makes no prediction and judges nothing. It only answers:
-what is in the published files (fields, counts, value ranges, layers, CRS)?
-Its output is the input for docs/M0_PREDICTION.md, which is committed before M0 runs.
-This is disclosed in M0_PREDICTION ("reconnaissance disclosed"), as in B2b.
+which public endpoint delivers the data, and what is in it (fields, counts, value ranges, CRS)?
+Its output is the input for docs/M0_PREDICTION.md, committed before M0 runs ("reconnaissance disclosed").
+
+History (disclosed):
+- v1 (308fa80): csv.Sniffer failed.
+- v2 (872e555): showed that both download links of the dataset page return the HTML page of the
+  city geoportal (an Angular app), not data. GPKG check then failed on that HTML.
+- v3 (this file): probes several public endpoints of the same dataset and records every answer.
 
 Source: Open Data Zurich, dataset geo_baumkataster, licence CC0.
-  CSV  https://www.stadt-zuerich.ch/geodaten/download/Baumkataster?format=10008
-  GPKG https://www.stadt-zuerich.ch/geodaten/download/Baumkataster?format=10005
 
-Definitions fixed before the run (this file is committed before the first run):
-- Files are saved to data/raw/ with the download date in the name; SHA-256 of every file is printed.
-- A zip is extracted to data/raw/<name>/; every member is listed with size and SHA-256.
-- CSV: encoding utf-8-sig, fallback latin-1. Delimiter = the one of , ; TAB | that occurs most often
-  in the header line (v2: the csv.Sniffer of v1 failed on this file; disclosed in the commit).
-- A file that cannot be read is recorded with its error and its first 300 characters; the run continues.
-- Empty = cell empty after strip.
-- Numeric column = at least 95 % of non-empty cells convert with float() after "," -> ".".
-- Value list printed for columns with at most 40 distinct values (top 15 by count).
-- GPKG: every layer read with geopandas; count, CRS, geometry types, columns, bounds, empty geometries.
-Usage (VPS, gis_qa venv has geopandas):
-  cd /root/voro-tree-qa && /root/gis_qa/.venv/bin/python r0/recon_r0.py
+Definitions fixed before the run (this file is committed before the run):
+- Every candidate endpoint is requested once; status, content type, size, SHA-256 and the first
+  200 bytes are recorded, also for failures. Bodies are saved to data/raw/ (outside git).
+- Kind of body by its first bytes: zip (PK), sqlite (GeoPackage), html, xml, json, otherwise text.
+- html bodies are not data and are only recorded.
+- json: GeoJSON FeatureCollection -> number of features, numberMatched/numberReturned/totalFeatures
+  if present, crs member, geometry types, coordinate bounds, statistics per property.
+- xml from DescribeFeatureType: element names and types are listed.
+- Statistics per field: filled / empty (None or empty after strip) / distinct; numeric if >= 95 %
+  of filled values convert with float() after "," -> "."; value list if <= 40 distinct (top 15).
+- sqlite: layers via pyogrio.list_layers, each layer read with geopandas.
+Usage (VPS):  cd /root/voro-tree-qa && /root/gis_qa/.venv/bin/python r0/recon_r0.py
 Writes results/r0_recon.json and prints a markdown summary.
 """
 import csv
 import hashlib
 import io
 import json
+import re
 import sys
 import urllib.request
 import zipfile
@@ -38,111 +42,148 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"
 RES = ROOT / "results"
-SOURCES = {
-    "csv": "https://www.stadt-zuerich.ch/geodaten/download/Baumkataster?format=10008",
-    "gpkg": "https://www.stadt-zuerich.ch/geodaten/download/Baumkataster?format=10005",
-}
-UA = {"User-Agent": "voro-tree-qa/0.0 (data quality research; github.com/MR73BIIO)"}
+DL = "https://www.stadt-zuerich.ch/geodaten/download/Baumkataster?format="
+WFS = "https://www.ogd.stadt-zuerich.ch/wfs/geoportal/Baumkataster?"
+CANDIDATES = [
+    ("dl_csv", DL + "10008", "text/csv,application/octet-stream;q=0.9"),
+    ("dl_gpkg", DL + "10005", "application/geopackage+sqlite3,application/octet-stream;q=0.9"),
+    ("dl_json", DL + "10009", "application/json,application/octet-stream;q=0.9"),
+    ("wfs_describe", WFS + "service=WFS&version=1.1.0&request=DescribeFeatureType"
+                           "&typename=baumkataster_baumstandorte", "*/*"),
+    ("wfs11_standorte", WFS + "service=WFS&version=1.1.0&request=GetFeature"
+                              "&typename=baumkataster_baumstandorte&outputFormat=GeoJSON", "*/*"),
+    ("wfs20_standorte", WFS + "service=WFS&version=2.0.0&request=GetFeature"
+                              "&typeNames=baumkataster_baumstandorte"
+                              "&outputFormat=application/vnd.geo%2Bjson", "*/*"),
+    ("wfs11_kronen", WFS + "service=WFS&version=1.1.0&request=GetFeature"
+                           "&typename=baumkataster_kronendurchmesser&outputFormat=GeoJSON", "*/*"),
+]
+UA = "voro-tree-qa/0.0 (data quality research; github.com/MR73BIIO)"
 
 
 def sha(b):
     return hashlib.sha256(b).hexdigest()
 
 
-def fetch(kind, url, day):
-    req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=300) as r:
-        body = r.read()
-        info = {"url": url, "status": r.status, "content_type": r.headers.get("Content-Type"),
-                "content_disposition": r.headers.get("Content-Disposition"), "bytes": len(body),
-                "sha256": sha(body)}
-    is_zip = body[:4] == b"PK\x03\x04"
-    name = f"baumkataster_{kind}_{day}" + (".zip" if is_zip else f".{kind}")
-    (RAW / name).write_bytes(body)
-    info["saved"] = f"data/raw/{name}"
-    info["zip"] = is_zip
-    files = []
-    if is_zip:
-        out = RAW / name[:-4]
-        out.mkdir(exist_ok=True)
-        with zipfile.ZipFile(io.BytesIO(body)) as z:
-            for m in z.infolist():
-                if m.is_dir():
-                    continue
-                data = z.read(m)
-                p = out / Path(m.filename).name
-                p.write_bytes(data)
-                files.append({"member": m.filename, "bytes": len(data), "sha256": sha(data),
-                              "path": str(p.relative_to(ROOT))})
-    else:
-        files.append({"member": name, "bytes": len(body), "sha256": info["sha256"],
-                      "path": info["saved"]})
-    info["files"] = files
-    return info
+def kind_of(b):
+    h = b[:512].lstrip().lower()
+    if b[:4] == b"PK\x03\x04":
+        return "zip"
+    if b[:16] == b"SQLite format 3\x00":
+        return "sqlite"
+    if h.startswith(b"<!doctype html") or h.startswith(b"<html"):
+        return "html"
+    if h.startswith(b"<?xml") or h.startswith(b"<"):
+        return "xml"
+    if h[:1] in (b"{", b"["):
+        return "json"
+    return "text"
 
 
-def to_float(s):
+def fetch(name, url, accept, day):
+    rec = {"name": name, "url": url}
     try:
-        return float(s.replace(",", "."))
+        req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": accept})
+        with urllib.request.urlopen(req, timeout=600) as r:
+            body = r.read()
+            rec.update(status=r.status, content_type=r.headers.get("Content-Type"),
+                       content_disposition=r.headers.get("Content-Disposition"))
+    except Exception as e:
+        rec["error"] = repr(e)
+        return rec, None
+    rec.update(bytes=len(body), sha256=sha(body), kind=kind_of(body),
+               head=body[:200].decode("utf-8", "replace"))
+    ext = {"sqlite": "gpkg", "zip": "zip", "html": "html", "xml": "xml", "json": "json"}.get(rec["kind"], "txt")
+    path = RAW / f"{name}_{day}.{ext}"
+    path.write_bytes(body)
+    rec["saved"] = str(path.relative_to(ROOT))
+    return rec, body
+
+
+def to_float(v):
+    try:
+        return float(str(v).replace(",", "."))
     except ValueError:
         return None
 
 
-def recon_csv(path):
-    raw = path.read_bytes()
-    for enc in ("utf-8-sig", "latin-1"):
-        try:
-            text = raw.decode(enc)
-            break
-        except UnicodeDecodeError:
-            continue
+def field_stats(name, vals):
+    filled = [str(v).strip() for v in vals if v is not None and str(v).strip()]
+    nums = [x for x in (to_float(v) for v in filled) if x is not None]
+    c = {"name": name, "filled": len(filled), "empty": len(vals) - len(filled),
+         "distinct": len(set(filled))}
+    if filled and len(nums) >= 0.95 * len(filled):
+        nums.sort()
+        c["numeric"] = {"min": nums[0], "p50": nums[len(nums) // 2], "max": nums[-1],
+                        "not_numeric": len(filled) - len(nums)}
+    cnt = Counter(filled)
+    if c["distinct"] <= 40:
+        c["values"] = cnt.most_common(15)
+    else:
+        c["top5"] = cnt.most_common(5)
+        c["examples"] = filled[:3]
+    return c
+
+
+def recon_geojson(body):
+    d = json.loads(body.decode("utf-8"))
+    feats = d.get("features", []) if isinstance(d, dict) else []
+    out = {k: d.get(k) for k in ("type", "numberMatched", "numberReturned", "totalFeatures", "crs")
+           if isinstance(d, dict) and k in d}
+    out["features"] = len(feats)
+    gtypes, xs, ys, keys = Counter(), [], [], []
+    for f in feats:
+        g = f.get("geometry") or {}
+        gtypes[g.get("type", "None")] += 1
+        c = g.get("coordinates")
+        if g.get("type") == "Point" and c and len(c) >= 2:
+            xs.append(c[0]); ys.append(c[1])
+        for k in (f.get("properties") or {}):
+            if k not in keys:
+                keys.append(k)
+    out["geom_types"] = dict(gtypes)
+    out["bounds"] = [min(xs), min(ys), max(xs), max(ys)] if xs else None
+    out["fields"] = [field_stats(k, [(f.get("properties") or {}).get(k) for f in feats]) for k in keys]
+    return out
+
+
+def recon_describe(body):
+    t = body.decode("utf-8", "replace")
+    return {"elements": re.findall(r'<(?:xsd?:)?element[^>]*name="([^"]+)"[^>]*type="([^"]+)"', t)}
+
+
+def recon_sqlite(path):
+    import geopandas as gpd
+    from pyogrio import list_layers
+    out = []
+    for lyr in [str(x[0]) for x in list_layers(path)]:
+        g = gpd.read_file(path, layer=lyr)
+        out.append({"layer": lyr, "features": len(g), "crs": str(g.crs),
+                    "geom_types": dict(Counter(g.geometry.geom_type.fillna("None"))),
+                    "columns": [field_stats(c, g[c].tolist()) for c in g.columns if c != g.geometry.name]})
+    return out
+
+
+def recon_text(body):
+    text = body.decode("utf-8-sig", "replace")
     first = text.split("\n", 1)[0]
     delim = max(",;\t|", key=first.count)
     rows = list(csv.reader(io.StringIO(text), delimiter=delim))
-    header, body = rows[0], rows[1:]
-    cols = []
-    for i, h in enumerate(header):
-        vals = [(r[i].strip() if i < len(r) else "") for r in body]
-        filled = [v for v in vals if v]
-        nums = [x for x in (to_float(v) for v in filled) if x is not None]
-        c = {"name": h, "filled": len(filled), "empty": len(vals) - len(filled),
-             "distinct": len(set(filled))}
-        if filled and len(nums) >= 0.95 * len(filled):
-            nums.sort()
-            c["numeric"] = {"min": nums[0], "p50": nums[len(nums) // 2], "max": nums[-1],
-                            "not_numeric": len(filled) - len(nums)}
-        cnt = Counter(filled)
-        if c["distinct"] <= 40:
-            c["values"] = cnt.most_common(15)
-        else:
-            c["top5"] = cnt.most_common(5)
-            c["examples"] = filled[:3]
-        cols.append(c)
-    widths = Counter(len(r) for r in body)
-    return {"encoding": enc, "delimiter": delim, "header_line": first[:300], "rows": len(body),
-            "row_widths": dict(widths), "columns": cols}
+    header, data = rows[0], rows[1:]
+    return {"delimiter": delim, "rows": len(data),
+            "fields": [field_stats(h, [r[i] if i < len(r) else None for r in data])
+                       for i, h in enumerate(header)]}
 
 
-def recon_gpkg(path):
-    import geopandas as gpd
-    try:
-        from pyogrio import list_layers
-        layers = [str(x[0]) for x in list_layers(path)]
-    except Exception:
-        import fiona
-        layers = list(fiona.listlayers(path))
-    out = []
-    for lyr in layers:
-        g = gpd.read_file(path, layer=lyr)
-        geom = g.geometry
-        out.append({
-            "layer": lyr, "features": len(g), "crs": str(g.crs),
-            "geom_types": dict(Counter(geom.geom_type.fillna("None"))),
-            "empty_or_null": int(geom.isna().sum() + geom.is_empty.sum()),
-            "bounds": [round(float(x), 2) for x in geom.total_bounds] if len(g) else None,
-            "columns": [f"{c}:{t}" for c, t in g.dtypes.astype(str).items() if c != g.geometry.name],
-        })
-    return out
+def print_fields(fields):
+    for c in fields:
+        line = f"- {c['name']}: filled {c['filled']}, empty {c['empty']}, distinct {c['distinct']}"
+        if "numeric" in c:
+            n = c["numeric"]
+            line += f", min {n['min']}, p50 {n['p50']}, max {n['max']}, not numeric {n['not_numeric']}"
+        print(line)
+        print(f"    values: {c['values']}" if "values" in c
+              else f"    top5: {c['top5']} | examples: {c['examples']}")
 
 
 def main():
@@ -150,62 +191,44 @@ def main():
     RES.mkdir(exist_ok=True)
     now = datetime.now(timezone.utc)
     day = now.strftime("%Y%m%d")
-    rep = {"run_utc": now.isoformat(timespec="seconds"), "downloads": {}, "csv": [], "gpkg": []}
-    for kind, url in SOURCES.items():
+    rep = {"run_utc": now.isoformat(timespec="seconds"), "candidates": []}
+    print(f"# R0 v3 reconnaissance - {rep['run_utc']}")
+    for name, url, accept in CANDIDATES:
+        rec, body = fetch(name, url, accept, day)
+        print(f"\n## {name}\n   {url}")
+        if body is None:
+            print(f"   ERROR {rec['error']}")
+            rep["candidates"].append(rec)
+            continue
+        print(f"   HTTP {rec['status']}, {rec['content_type']}, {rec['bytes']} B, kind {rec['kind']}, sha256 {rec['sha256']}")
         try:
-            rep["downloads"][kind] = fetch(kind, url, day)
-        except Exception as e:  # recorded, not hidden
-            rep["downloads"][kind] = {"url": url, "error": repr(e), "files": []}
-    for f in rep["downloads"]["csv"]["files"]:
-        if f["path"].lower().endswith(".csv"):
-            try:
-                rep["csv"].append({"path": f["path"], **recon_csv(ROOT / f["path"])})
-            except Exception as e:
-                head = (ROOT / f["path"]).read_bytes()[:300].decode("utf-8", "replace")
-                rep["csv"].append({"path": f["path"], "error": repr(e), "head": head})
-    for f in rep["downloads"]["gpkg"]["files"]:
-        if f["path"].lower().endswith(".gpkg"):
-            try:
-                rep["gpkg"].append({"path": f["path"], "layers": recon_gpkg(ROOT / f["path"])})
-            except Exception as e:
-                rep["gpkg"].append({"path": f["path"], "error": repr(e), "layers": []})
-    (RES / "r0_recon.json").write_text(json.dumps(rep, ensure_ascii=False, indent=1), encoding="utf-8")
-
-    print(f"# R0 reconnaissance - {rep['run_utc']}\n")
-    for kind, d in rep["downloads"].items():
-        if "error" in d:
-            print(f"## download {kind}: ERROR {d['error']}")
-            continue
-        print(f"## download {kind}: HTTP {d['status']}, {d['bytes']} B, zip={d['zip']}, sha256 {d['sha256']}")
-        print(f"   type: {d['content_type']} | {d['content_disposition']}")
-        for f in d["files"]:
-            print(f"   - {f['member']}  {f['bytes']} B  {f['sha256']}")
-    for c in rep["csv"]:
-        if "error" in c:
-            print(f"\n## CSV {c['path']}: ERROR {c['error']}\n   head: {c['head']!r}")
-            continue
-        print(f"\n## CSV {c['path']}: rows {c['rows']}, encoding {c['encoding']}, delimiter '{c['delimiter']}', row widths {c['row_widths']}")
-        print(f"   header: {c['header_line']!r}")
-        for col in c["columns"]:
-            line = f"- {col['name']}: filled {col['filled']}, empty {col['empty']}, distinct {col['distinct']}"
-            if "numeric" in col:
-                n = col["numeric"]
-                line += f", min {n['min']}, p50 {n['p50']}, max {n['max']}, not numeric {n['not_numeric']}"
-            print(line)
-            if "values" in col:
-                print(f"    values: {col['values']}")
+            if rec["kind"] == "json":
+                rec["recon"] = r = recon_geojson(body)
+                print(f"   {({k: r[k] for k in r if k not in ('fields',)})}")
+                print_fields(r["fields"])
+            elif rec["kind"] == "xml" and name == "wfs_describe":
+                rec["recon"] = r = recon_describe(body)
+                print(f"   elements: {r['elements']}")
+            elif rec["kind"] == "sqlite":
+                rec["recon"] = r = recon_sqlite(ROOT / rec["saved"])
+                for l in r:
+                    print(f"   layer {l['layer']}: {l['features']} features, {l['crs']}, {l['geom_types']}")
+                    print_fields(l["columns"])
+            elif rec["kind"] == "zip":
+                with zipfile.ZipFile(io.BytesIO(body)) as z:
+                    rec["recon"] = [(m.filename, m.file_size) for m in z.infolist()]
+                print(f"   zip members: {rec['recon']}")
+            elif rec["kind"] == "text":
+                rec["recon"] = r = recon_text(body)
+                print(f"   rows {r['rows']}, delimiter {r['delimiter']!r}")
+                print_fields(r["fields"])
             else:
-                print(f"    top5: {col['top5']} | examples: {col['examples']}")
-    for g in rep["gpkg"]:
-        print(f"\n## GPKG {g['path']}" + (f": ERROR {g['error']}" if "error" in g else ""))
-        for l in g["layers"]:
-            print(f"- layer {l['layer']}: {l['features']} features, {l['crs']}, {l['geom_types']}, "
-                  f"empty/null {l['empty_or_null']}, bounds {l['bounds']}")
-            print(f"    columns: {l['columns']}")
-    if not rep["csv"]:
-        print("\nWARNING: no .csv file found in the CSV download")
-    if not rep["gpkg"]:
-        print("\nWARNING: no .gpkg file found in the GPKG download")
+                print(f"   head: {rec['head']!r}")
+        except Exception as e:
+            rec["recon_error"] = repr(e)
+            print(f"   RECON ERROR {e!r}\n   head: {rec['head']!r}")
+        rep["candidates"].append(rec)
+    (RES / "r0_recon.json").write_text(json.dumps(rep, ensure_ascii=False, indent=1), encoding="utf-8")
     print("\nwritten: results/r0_recon.json")
 
 
