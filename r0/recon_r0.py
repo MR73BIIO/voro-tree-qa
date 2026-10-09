@@ -13,7 +13,9 @@ Source: Open Data Zurich, dataset geo_baumkataster, licence CC0.
 Definitions fixed before the run (this file is committed before the first run):
 - Files are saved to data/raw/ with the download date in the name; SHA-256 of every file is printed.
 - A zip is extracted to data/raw/<name>/; every member is listed with size and SHA-256.
-- CSV: encoding utf-8-sig, fallback latin-1; delimiter sniffed from the first 64 kB.
+- CSV: encoding utf-8-sig, fallback latin-1. Delimiter = the one of , ; TAB | that occurs most often
+  in the header line (v2: the csv.Sniffer of v1 failed on this file; disclosed in the commit).
+- A file that cannot be read is recorded with its error and its first 300 characters; the run continues.
 - Empty = cell empty after strip.
 - Numeric column = at least 95 % of non-empty cells convert with float() after "," -> ".".
 - Value list printed for columns with at most 40 distinct values (top 15 by count).
@@ -94,8 +96,9 @@ def recon_csv(path):
             break
         except UnicodeDecodeError:
             continue
-    dialect = csv.Sniffer().sniff(text[:65536], delimiters=",;\t|")
-    rows = list(csv.reader(io.StringIO(text), dialect))
+    first = text.split("\n", 1)[0]
+    delim = max(",;\t|", key=first.count)
+    rows = list(csv.reader(io.StringIO(text), delimiter=delim))
     header, body = rows[0], rows[1:]
     cols = []
     for i, h in enumerate(header):
@@ -116,7 +119,7 @@ def recon_csv(path):
             c["examples"] = filled[:3]
         cols.append(c)
     widths = Counter(len(r) for r in body)
-    return {"encoding": enc, "delimiter": dialect.delimiter, "rows": len(body),
+    return {"encoding": enc, "delimiter": delim, "header_line": first[:300], "rows": len(body),
             "row_widths": dict(widths), "columns": cols}
 
 
@@ -155,10 +158,17 @@ def main():
             rep["downloads"][kind] = {"url": url, "error": repr(e), "files": []}
     for f in rep["downloads"]["csv"]["files"]:
         if f["path"].lower().endswith(".csv"):
-            rep["csv"].append({"path": f["path"], **recon_csv(ROOT / f["path"])})
+            try:
+                rep["csv"].append({"path": f["path"], **recon_csv(ROOT / f["path"])})
+            except Exception as e:
+                head = (ROOT / f["path"]).read_bytes()[:300].decode("utf-8", "replace")
+                rep["csv"].append({"path": f["path"], "error": repr(e), "head": head})
     for f in rep["downloads"]["gpkg"]["files"]:
         if f["path"].lower().endswith(".gpkg"):
-            rep["gpkg"].append({"path": f["path"], "layers": recon_gpkg(ROOT / f["path"])})
+            try:
+                rep["gpkg"].append({"path": f["path"], "layers": recon_gpkg(ROOT / f["path"])})
+            except Exception as e:
+                rep["gpkg"].append({"path": f["path"], "error": repr(e), "layers": []})
     (RES / "r0_recon.json").write_text(json.dumps(rep, ensure_ascii=False, indent=1), encoding="utf-8")
 
     print(f"# R0 reconnaissance - {rep['run_utc']}\n")
@@ -171,7 +181,11 @@ def main():
         for f in d["files"]:
             print(f"   - {f['member']}  {f['bytes']} B  {f['sha256']}")
     for c in rep["csv"]:
+        if "error" in c:
+            print(f"\n## CSV {c['path']}: ERROR {c['error']}\n   head: {c['head']!r}")
+            continue
         print(f"\n## CSV {c['path']}: rows {c['rows']}, encoding {c['encoding']}, delimiter '{c['delimiter']}', row widths {c['row_widths']}")
+        print(f"   header: {c['header_line']!r}")
         for col in c["columns"]:
             line = f"- {col['name']}: filled {col['filled']}, empty {col['empty']}, distinct {col['distinct']}"
             if "numeric" in col:
@@ -183,7 +197,7 @@ def main():
             else:
                 print(f"    top5: {col['top5']} | examples: {col['examples']}")
     for g in rep["gpkg"]:
-        print(f"\n## GPKG {g['path']}")
+        print(f"\n## GPKG {g['path']}" + (f": ERROR {g['error']}" if "error" in g else ""))
         for l in g["layers"]:
             print(f"- layer {l['layer']}: {l['features']} features, {l['crs']}, {l['geom_types']}, "
                   f"empty/null {l['empty_or_null']}, bounds {l['bounds']}")
