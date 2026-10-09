@@ -1,0 +1,1603 @@
+{
+ "rows": [
+  {
+   "id": "P1",
+   "measured": "baumgattunglat = first word of baumnamelat",
+   "value": "80577/81142 (99.3 %), mismatches 565",
+   "prediction": ">= 98.0 % and >= 1 mismatch",
+   "verdict": "CONFIRMED"
+  },
+  {
+   "id": "P2",
+   "measured": "baumartlat = second word of baumnamelat (baumartlat filled)",
+   "value": "71351/79502 (89.75 %)",
+   "prediction": ">= 95.0 %",
+   "verdict": "REFUTED"
+  },
+  {
+   "id": "P3",
+   "measured": "pflanzjahr >= 2022: share with crown >= 8 m",
+   "value": "921/9065 (10.16 %)",
+   "prediction": ">= 5.0 %",
+   "verdict": "CONFIRMED"
+  },
+  {
+   "id": "P4a",
+   "measured": "Strassenbaum: share Measured",
+   "value": "20435/23264 (87.84 %)",
+   "prediction": ">= 70.0 %",
+   "verdict": "CONFIRMED"
+  },
+  {
+   "id": "P4b",
+   "measured": "Parkbaum: share Measured",
+   "value": "9083/57878 (15.69 %)",
+   "prediction": "<= 30.0 %",
+   "verdict": "CONFIRMED"
+  },
+  {
+   "id": "P5",
+   "measured": "Strassenbaum, pflanzjahr >= 2001: share Measured",
+   "value": "12076/14504 (83.26 %)",
+   "prediction": ">= 85.0 %",
+   "verdict": "REFUTED"
+  },
+  {
+   "id": "P6",
+   "measured": "kategorie Strassenbaum <=> status Strassenbaum / Strassenbaum (A)",
+   "value": "0 mismatches",
+   "prediction": "0",
+   "verdict": "CONFIRMED"
+  },
+  {
+   "id": "P7",
+   "measured": "baumtyp -> one text; 3 and 4 share one text; empty -> 'nicht zugeordnet'",
+   "value": "one text True, 3=4 True, empty ok True",
+   "prediction": "all true",
+   "verdict": "CONFIRMED"
+  },
+  {
+   "id": "P8",
+   "measured": "close pairs < 0.50 m (LV95)",
+   "value": "38 pairs (2 at the same point)",
+   "prediction": "1 ... 811",
+   "verdict": "CONFIRMED"
+  },
+  {
+   "id": "P9",
+   "measured": "pflanzjahr < 1850",
+   "value": "48 trees, years [(1665, 1), (1780, 1), (1796, 1), (1800, 3), (1805, 3), (1806, 8), (1815, 1), (1820, 1), (1822, 1), (1826, 2)]",
+   "prediction": "1 ... 100",
+   "verdict": "CONFIRMED"
+  },
+  {
+   "id": "P10a",
+   "measured": "baumnummer = poi_id",
+   "value": "81142/81142",
+   "prediction": "81142/81142",
+   "verdict": "CONFIRMED"
+  },
+  {
+   "id": "P10b",
+   "measured": "share of baumnummer starting 'nn-'",
+   "value": "1568/81142 (1.93 %)",
+   "prediction": ">= 1.0 %",
+   "verdict": "CONFIRMED"
+  },
+  {
+   "id": "P11",
+   "measured": "crown exactly 8 m: Bildschirmeingabe vs Measured",
+   "value": "16.22 % vs 9.34 %",
+   "prediction": "Bildschirmeingabe higher",
+   "verdict": "CONFIRMED"
+  }
+ ],
+ "life_verdict": "REFUTED",
+ "confirmed": "11/13",
+ "input": "wfs11_standorte_20261009.json",
+ "features": 81142,
+ "baumtyp_mapping": {
+  "": {
+   "nicht zugeordnet": 1066
+  },
+  "0": {
+   "nicht zugeordnet": 43530
+  },
+  "1": {
+   "Höhe:>20m, Breite:>10m": 5567
+  },
+  "2": {
+   "Höhe:>20m, Breite:<10m": 1775
+  },
+  "3": {
+   "Höhe:10-20m, Breite:<10m": 2494
+  },
+  "4": {
+   "Höhe:10-20m, Breite:<10m": 12754
+  },
+  "5": {
+   "Höhe:<10m, Breite:<10m": 3060
+  },
+  "6": {
+   "Obstbäume": 10896
+  }
+ },
+ "p1_mismatches": [
+  [
+   "nn-1851",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "nn-1407",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "nn-1409",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-1088",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-1587",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-1588",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-1607",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "RI-3177",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-2861",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HO-716",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "LE-234",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "LE-347",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-487",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-497",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-628",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-1752",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-1754",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-1556",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HI-487",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-1907",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-5903",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-6315",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-6270",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-6309",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-5830",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-5905",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "nn-258",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-2105",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-625",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-626",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-1636",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-490",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-9258",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-9259",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-9260",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-10414",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-10417",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-1819",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WD-6245",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-3546",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-1839",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-2903",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-2907",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-2909",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "LE-1362",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "LE-810",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AR-1087",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AR-1086",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-2899",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-2100",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-2101",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-2102",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-2103",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-6263",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-6264",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SE-3895",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-1821",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-9983",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-9982",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-9981",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-496",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-1820",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-1816",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AR-2219",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AR-2222",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-4863",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-4864",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-4855",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-4847",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-4873",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-4860",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-2756",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-2757",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-2758",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-2759",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-949",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-7315",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WD-13197",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SE-5516",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HO-4899",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HO-4900",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-9156",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-1389",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-1315",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-2695",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-1679",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-1774",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-1798",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-2744",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WD-3049",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "LE-233",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "LE-235",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "LE-926",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-1428",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-1448",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-915",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-914",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-1399",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-1398",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-1397",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-1396",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-1395",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-1394",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-1393",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-1390",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-1391",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-1316",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-1401",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-965",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-985",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "FL-808",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-2262",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-2496",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-692",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WD-635",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-1392",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-1387",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-1388",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "LE-896",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-1010",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-986",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-2822",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-1814",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-2828",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WD-10587",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WD-10588",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-2583",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-2582",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-2356",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-2021",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-2733",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-2780",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-2387",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-4463",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-1603",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-3213",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-5907",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "EN-6078",
+   "x Sycoparrotia",
+   "x Sycoparrotia semidecidua"
+  ],
+  [
+   "AF-1256",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-3216",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "FL-809",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-6173",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-3190",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WD-13470",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-3159",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-2017",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-6044",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-3582",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-3583",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-1853",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-11644",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-8048",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-12001",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-10860",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-3658",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-6041",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-3596",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SE-672",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-8079",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AL-2487",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SW-11999",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AR-1953",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-3558",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "FL-3869",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-218",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AR-1952",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WD-12230",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "nn-1133",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "nn-1134",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "nn-1135",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "nn-1136",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "nn-1137",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-391",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-1824",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-576",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-611",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-612",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SE-817",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-2050",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HO-684",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-1605",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-1606",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-1608",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-1609",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-357",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-441",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WI-566",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-1412",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "HG-1429",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SE-876",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-920",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-927",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "AF-931",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "RI-2965",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "LE-634",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "LE-549",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "WO-1483",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SE-671",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "OB-535",
+   "Juglans",
+   "Juglas regia cv."
+  ],
+  [
+   "SE-715",
+   "Juglans",
+   "Juglas regia cv."
+  ]
+ ],
+ "p2_mismatches_first50": [
+  [
+   "SE-782",
+   "domestica insititia",
+   "Prunus domestica insititia 'Löhrpflaume'"
+  ],
+  [
+   "HG-1958",
+   "domestica italica",
+   "Prunus domestica italica 'Reineclaude d'Oullins'"
+  ],
+  [
+   "HG-1967",
+   "domestica syriaca",
+   "Prunus domestica syriaca cv."
+  ],
+  [
+   "WO-1516",
+   "domestica domestica",
+   "Prunus domestica domestica 'Bühler Frühzwetschge'"
+  ],
+  [
+   "SW-6159",
+   "domestica insititia",
+   "Prunus domestica insititia cv."
+  ],
+  [
+   "AF-1066",
+   "domestica domestica",
+   "Prunus domestica domestica 'Bühler Frühzwetschge'"
+  ],
+  [
+   "LE-1044",
+   "domestica insititia",
+   "Prunus domestica insititia 'Pfirsichpflaume'"
+  ],
+  [
+   "LE-1045",
+   "domestica insititia",
+   "Prunus domestica insititia 'Belle de Paris'"
+  ],
+  [
+   "LE-1046",
+   "domestica insititia",
+   "Prunus domestica insititia 'Kirkespflaume'"
+  ],
+  [
+   "SW-9241",
+   "domestica insititia",
+   "Prunus domestica insititia cv."
+  ],
+  [
+   "SW-9246",
+   "domestica insititia",
+   "Prunus domestica insititia cv."
+  ],
+  [
+   "SW-9247",
+   "domestica insititia",
+   "Prunus domestica insititia cv."
+  ],
+  [
+   "SW-9248",
+   "domestica insititia",
+   "Prunus domestica insititia cv."
+  ],
+  [
+   "WO-1500",
+   "regia (S)",
+   "Juglans regia (S)"
+  ],
+  [
+   "WO-1501",
+   "regia (S)",
+   "Juglans regia (S)"
+  ],
+  [
+   "WO-1502",
+   "regia (S)",
+   "Juglans regia (S)"
+  ],
+  [
+   "WO-1505",
+   "regia (S)",
+   "Juglans regia (S)"
+  ],
+  [
+   "WO-1511",
+   "domestica domestica",
+   "Prunus domestica domestica 'Bühler Frühzwetschge'"
+  ],
+  [
+   "WO-1512",
+   "domestica syriaca",
+   "Prunus domestica syriaca 'Mirabelle de Nancy'"
+  ],
+  [
+   "HG-2402",
+   "domestica insititia",
+   "Prunus domestica insititia cv."
+  ],
+  [
+   "HG-2403",
+   "domestica insititia",
+   "Prunus domestica insititia cv."
+  ],
+  [
+   "HO-706",
+   "domestica syriaca",
+   "Prunus domestica syriaca 'Mirabelle de Nancy'"
+  ],
+  [
+   "HO-707",
+   "domestica insititia",
+   "Prunus domestica insititia cv."
+  ],
+  [
+   "SW-9204",
+   "domestica italica",
+   "Prunus domestica italica 'Grosse Grüne Reneclaude'"
+  ],
+  [
+   "SW-9205",
+   "domestica insititia",
+   "Prunus domestica insititia cv."
+  ],
+  [
+   "SW-9207",
+   "domestica insititia",
+   "Prunus domestica insititia cv."
+  ],
+  [
+   "SW-9212",
+   "domestica insititia",
+   "Prunus domestica insititia cv."
+  ],
+  [
+   "SW-9230",
+   "domestica insititia",
+   "Prunus domestica insititia cv."
+  ],
+  [
+   "SW-9234",
+   "domestica insititia",
+   "Prunus domestica insititia cv."
+  ],
+  [
+   "SW-9235",
+   "domestica insititia",
+   "Prunus domestica insititia cv."
+  ],
+  [
+   "SW-9281",
+   "domestica insititia",
+   "Prunus domestica insititia cv."
+  ],
+  [
+   "HG-1593",
+   "domestica domestica",
+   "Prunus domestica domestica 'Bühler Frühzwetschge'"
+  ],
+  [
+   "HG-1594",
+   "domestica domestica",
+   "Prunus domestica domestica 'Bühler Frühzwetschge'"
+  ],
+  [
+   "HG-1595",
+   "domestica domestica",
+   "Prunus domestica domestica 'Bühler Frühzwetschge'"
+  ],
+  [
+   "WI-506",
+   "domestica domestica",
+   "Prunus domestica domestica 'Bühler Frühzwetschge'"
+  ],
+  [
+   "RI-4012",
+   "regia (S)",
+   "Juglans regia (S)"
+  ],
+  [
+   "SW-6316",
+   "domestica insititia",
+   "Prunus domestica insititia cv."
+  ],
+  [
+   "RI-3785",
+   "domestica domestica",
+   "Prunus domestica domestica cv."
+  ],
+  [
+   "SW-9255",
+   "domestica domestica",
+   "Prunus domestica domestica 'Katinka'"
+  ],
+  [
+   "SW-9957",
+   "domestica domestica",
+   "Prunus domestica domestica 'Elena'"
+  ],
+  [
+   "SW-9984",
+   "regia (S)",
+   "Juglans regia (S)"
+  ],
+  [
+   "SW-8945",
+   "regia (S)",
+   "Juglans regia (S)"
+  ],
+  [
+   "SW-10012",
+   "regia (S)",
+   "Juglans regia (S)"
+  ],
+  [
+   "SW-10015",
+   "regia (S)",
+   "Juglans regia (S)"
+  ],
+  [
+   "SW-10018",
+   "regia (S)",
+   "Juglans regia (S)"
+  ],
+  [
+   "SW-10019",
+   "regia (S)",
+   "Juglans regia (S)"
+  ],
+  [
+   "SW-10020",
+   "regia (S)",
+   "Juglans regia (S)"
+  ],
+  [
+   "WO-3169",
+   "domestica insititia",
+   "Prunus domestica insititia 'Kirkespflaume'"
+  ],
+  [
+   "HI-1749",
+   "domestica domestica",
+   "Prunus domestica domestica cv."
+  ],
+  [
+   "SW-9216",
+   "domestica domestica",
+   "Prunus domestica domestica 'Fellenberg'"
+  ]
+ ],
+ "p6_mismatches": [],
+ "p9_years": [
+  1665,
+  1780,
+  1796,
+  1800,
+  1800,
+  1800,
+  1805,
+  1805,
+  1805,
+  1806,
+  1806,
+  1806,
+  1806,
+  1806,
+  1806,
+  1806,
+  1806,
+  1815,
+  1820,
+  1822,
+  1826,
+  1826,
+  1831,
+  1832,
+  1832,
+  1832,
+  1836,
+  1836,
+  1836,
+  1836,
+  1836,
+  1836,
+  1836,
+  1836,
+  1836,
+  1836,
+  1836,
+  1836,
+  1836,
+  1836,
+  1836,
+  1836,
+  1836,
+  1836,
+  1836,
+  1836,
+  1836,
+  1845
+ ],
+ "p8_pairs_first50": [
+  [
+   "WI-876",
+   "WI-3013"
+  ],
+  [
+   "OB-3709",
+   "OB-4733"
+  ],
+  [
+   "EN-2250",
+   "EN-6066"
+  ],
+  [
+   "RI-7567",
+   "RI-7566"
+  ],
+  [
+   "SW-11078",
+   "SW-11181"
+  ],
+  [
+   "WP-1481",
+   "WP-3933"
+  ],
+  [
+   "AA-1686",
+   "AA-1685"
+  ],
+  [
+   "AA-1684",
+   "AA-1685"
+  ],
+  [
+   "EN-6685",
+   "EN-6687"
+  ],
+  [
+   "nn-1644",
+   "nn-1645"
+  ],
+  [
+   "UN-7437",
+   "UN-7435"
+  ],
+  [
+   "WD-9310",
+   "WD-9309"
+  ],
+  [
+   "SW-11918",
+   "SW-2001"
+  ],
+  [
+   "WD-12210",
+   "WD-12212"
+  ],
+  [
+   "OB-488",
+   "OB-487"
+  ],
+  [
+   "WD-13669",
+   "WD-13668"
+  ],
+  [
+   "nn-384",
+   "nn-385"
+  ],
+  [
+   "HG-3998",
+   "HG-7496"
+  ],
+  [
+   "EN-7103",
+   "EN-7104"
+  ],
+  [
+   "RI-7508",
+   "RI-7507"
+  ],
+  [
+   "AA-3077",
+   "AA-3078"
+  ],
+  [
+   "HG-7243",
+   "HG-6567"
+  ],
+  [
+   "EN-4018",
+   "EN-4017"
+  ],
+  [
+   "AF-4321",
+   "AF-4325"
+  ],
+  [
+   "AF-4318",
+   "AF-4515"
+  ],
+  [
+   "UN-5891",
+   "UN-6044"
+  ],
+  [
+   "OB-3892",
+   "OB-3893"
+  ],
+  [
+   "OB-4654",
+   "OB-4655"
+  ],
+  [
+   "WD-5242",
+   "WD-5243"
+  ],
+  [
+   "WO-5340",
+   "WO-5339"
+  ],
+  [
+   "WO-5833",
+   "WO-5832"
+  ],
+  [
+   "HG-4823",
+   "HG-4824"
+  ],
+  [
+   "RI-7607",
+   "RI-7652"
+  ],
+  [
+   "WP-2806",
+   "WP-2807"
+  ],
+  [
+   "UN-4458",
+   "UN-4459"
+  ],
+  [
+   "UN-3825",
+   "UN-3824"
+  ],
+  [
+   "AL-2314",
+   "AL-2315"
+  ],
+  [
+   "HG-4802",
+   "HG-4803"
+  ]
+ ],
+ "genauigkeit_by_kategorie": {
+  "Strassenbaum": {
+   "Eingemessen": 20428,
+   "Bildschirmeingabe": 2755,
+   "Digitalisierung oder ELTA2": 70,
+   "Eingemessen (Nachpflanzung)": 7,
+   "Unbekannte Qualität": 4
+  },
+  "Parkbaum": {
+   "Bildschirmeingabe": 43899,
+   "Unbekannte Qualität": 4158,
+   "Luftbild": 128,
+   "Eingemessen": 9082,
+   "Digitalisierung oder ELTA2": 607,
+   "Eingemessen (Nachpflanzung)": 1,
+   "(neuer Baum)": 1,
+   "(unbekannter Standort)": 2
+  }
+ }
+}
