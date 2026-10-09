@@ -8,6 +8,7 @@ authors:
     given-names: Marcin
     orcid: "https://orcid.org/0009-0004-0170-4277"
 version: "0.1"
+doi: "10.5281/zenodo.23267379"
 date-released: "2026-10-09"
 repository-code: "https://github.com/MR73BIIO/voro-tree-qa"
 keywords:

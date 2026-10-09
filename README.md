@@ -1,5 +1,7 @@
 # voro-tree-qa
 
+[![DOI](https://zenodo.org/badge/1412075011.svg)](https://doi.org/10.5281/zenodo.23267379)
+
 Quality checks for public tree registers (Baumkataster), tested against what the data owner says about its own data.
 
 First data: the tree register of the City of Zurich (Open Data Zurich, CC0), 81 142 trees.
@@ -40,6 +42,10 @@ M0b (why 10 % of species disagree) → B1 golden batch → B2 checks → B3 inje
 python r0/recon_r0.py     # downloads the public data to data/ (not in git), prints SHA-256
 python m0/measure_m0.py   # needs geopandas; stops if the input SHA-256 differs
 ```
+
+## Cite
+
+All versions: https://doi.org/10.5281/zenodo.23267379 · v0.1: https://doi.org/10.5281/zenodo.23267380
 
 ## Data
 
