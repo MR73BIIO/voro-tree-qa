@@ -1,0 +1,725 @@
+{
+ "run_utc": "2026-10-09T15:44:43+00:00",
+ "candidates": [
+  {
+   "name": "dl_csv",
+   "url": "https://www.stadt-zuerich.ch/geodaten/download/Baumkataster?format=10008",
+   "status": 200,
+   "content_type": "text/html; charset=utf-8",
+   "content_disposition": null,
+   "bytes": 41682,
+   "sha256": "967cb8a4764bfe42c6a68bb35fa9b974c1ec4fd578cde58f33e3266627f4addd",
+   "kind": "html",
+   "head": "<!DOCTYPE html><html lang=\"de\"><head>\n  <meta charset=\"utf-8\">\n  <meta name=\"robots\" content=\"nofollow\">\n\n  <meta name=\"google-site-verification\" content=\"QCA9umXNOCF04CZD5EPlnKyE__AFW0s5g5o1R-RdbK0\">",
+   "saved": "data/raw/dl_csv_20261009.html"
+  },
+  {
+   "name": "dl_gpkg",
+   "url": "https://www.stadt-zuerich.ch/geodaten/download/Baumkataster?format=10005",
+   "status": 200,
+   "content_type": "text/html; charset=utf-8",
+   "content_disposition": null,
+   "bytes": 41671,
+   "sha256": "46f694842de2e4ce63304b92728e6b1453dcd9784f021b43de4bcda5d8e51fa5",
+   "kind": "html",
+   "head": "<!DOCTYPE html><html lang=\"de\"><head>\n  <meta charset=\"utf-8\">\n  <meta name=\"robots\" content=\"nofollow\">\n\n  <meta name=\"google-site-verification\" content=\"QCA9umXNOCF04CZD5EPlnKyE__AFW0s5g5o1R-RdbK0\">",
+   "saved": "data/raw/dl_gpkg_20261009.html"
+  },
+  {
+   "name": "dl_json",
+   "url": "https://www.stadt-zuerich.ch/geodaten/download/Baumkataster?format=10009",
+   "status": 200,
+   "content_type": "text/html; charset=utf-8",
+   "content_disposition": null,
+   "bytes": 41668,
+   "sha256": "c04d0838c36dc16b07231c5777386ba49d74d585ce88290f220e9987ca1fe5ac",
+   "kind": "html",
+   "head": "<!DOCTYPE html><html lang=\"de\"><head>\n  <meta charset=\"utf-8\">\n  <meta name=\"robots\" content=\"nofollow\">\n\n  <meta name=\"google-site-verification\" content=\"QCA9umXNOCF04CZD5EPlnKyE__AFW0s5g5o1R-RdbK0\">",
+   "saved": "data/raw/dl_json_20261009.html"
+  },
+  {
+   "name": "wfs_describe",
+   "url": "https://www.ogd.stadt-zuerich.ch/wfs/geoportal/Baumkataster?service=WFS&version=1.1.0&request=DescribeFeatureType&typename=baumkataster_baumstandorte",
+   "status": 200,
+   "content_type": "text/xml; charset=utf-8",
+   "content_disposition": null,
+   "bytes": 1893,
+   "sha256": "af2f0d59a64ec402d1f3b5515275749ec1bce4d5905f853a3cd87b366d37560d",
+   "kind": "xml",
+   "head": "<schema xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:ogc=\"http://www.opengis.net/ogc\" xmlns:qgs=\"http://www.qgis.org/gml\" xmlns=\"http://www.w3.org/2001/XMLSchema\" targetNamespace=\"http://www.qgi",
+   "saved": "data/raw/wfs_describe_20261009.xml",
+   "recon": {
+    "elements": []
+   }
+  },
+  {
+   "name": "wfs11_standorte",
+   "url": "https://www.ogd.stadt-zuerich.ch/wfs/geoportal/Baumkataster?service=WFS&version=1.1.0&request=GetFeature&typename=baumkataster_baumstandorte&outputFormat=GeoJSON",
+   "status": 200,
+   "content_type": "application/vnd.geo+json; charset=utf-8",
+   "content_disposition": null,
+   "bytes": 46197314,
+   "sha256": "8c84839fdca98eaf740275b74850b857869b677cf1c3fe6743c4d44114cc4b09",
+   "kind": "json",
+   "head": "{\"type\": \"FeatureCollection\",\n \"bbox\": [ 8.461664, 47.320565, 8.614473, 47.43675],\n \"features\": [\n  {\"geometry\":{\"coordinates\":[8.509643,47.321987],\"type\":\"Point\"},\"id\":\"baumkataster_baumstandorte.1\",",
+   "saved": "data/raw/wfs11_standorte_20261009.json",
+   "recon": {
+    "type": "FeatureCollection",
+    "features": 81142,
+    "geom_types": {
+     "Point": 81142
+    },
+    "bounds": [
+     8.463149,
+     47.321549,
+     8.612854,
+     47.436116
+    ],
+    "fields": [
+     {
+      "name": "baumartlat",
+      "filled": 79502,
+      "empty": 1640,
+      "distinct": 383,
+      "top5": [
+       [
+        "domestica",
+        5583
+       ],
+       [
+        "platanoides",
+        4762
+       ],
+       [
+        "betulus",
+        4473
+       ],
+       [
+        "campestre",
+        3335
+       ],
+       [
+        "pendula",
+        3185
+       ]
+      ],
+      "examples": [
+       "regia",
+       "oblonga",
+       "domestica"
+      ]
+     },
+     {
+      "name": "baumgattunglat",
+      "filled": 81142,
+      "empty": 0,
+      "distinct": 121,
+      "top5": [
+       [
+        "Acer",
+        12030
+       ],
+       [
+        "Prunus",
+        6772
+       ],
+       [
+        "Malus",
+        5219
+       ],
+       [
+        "Carpinus",
+        4487
+       ],
+       [
+        "Tilia",
+        4226
+       ]
+      ],
+      "examples": [
+       "Juglans",
+       "Cydonia",
+       "Prunus"
+      ]
+     },
+     {
+      "name": "baumnamedeu",
+      "filled": 81142,
+      "empty": 0,
+      "distinct": 1224,
+      "top5": [
+       [
+        "Spitz-Ahorn",
+        4528
+       ],
+       [
+        "Gemeine Hain- oder Weissbuche",
+        4323
+       ],
+       [
+        "Feld-Ahorn, Hecken-Ahorn",
+        3325
+       ],
+       [
+        "Sand-Birke, Weiss-Birke",
+        3184
+       ],
+       [
+        "Platane (occidentalis x orientalis)",
+        3152
+       ]
+      ],
+      "examples": [
+       "Walnuss-Obstgehölz, Sorte unbekannt",
+       "Quitte-Obstgehölz, Sorte unbekannt",
+       "Sammelbegriff für Zwetschgen, Pflaume, Reneklode usw. (Sorte unbek.)"
+      ]
+     },
+     {
+      "name": "baumnamelat",
+      "filled": 81142,
+      "empty": 0,
+      "distinct": 1560,
+      "top5": [
+       [
+        "Carpinus betulus",
+        4314
+       ],
+       [
+        "Acer platanoides",
+        3070
+       ],
+       [
+        "Platanus x hispanica",
+        2757
+       ],
+       [
+        "Acer campestre",
+        2748
+       ],
+       [
+        "Betula pendula",
+        2710
+       ]
+      ],
+      "examples": [
+       "Juglas regia cv.",
+       "Cydonia oblonga cv.",
+       "Prunus domestica cv."
+      ]
+     },
+     {
+      "name": "baumnummer",
+      "filled": 81142,
+      "empty": 0,
+      "distinct": 81142,
+      "top5": [
+       [
+        "nn-1851",
+        1
+       ],
+       [
+        "nn-1177",
+        1
+       ],
+       [
+        "nn-1130",
+        1
+       ],
+       [
+        "nn-1141",
+        1
+       ],
+       [
+        "nn-1129",
+        1
+       ]
+      ],
+      "examples": [
+       "nn-1851",
+       "nn-1177",
+       "nn-1130"
+      ]
+     },
+     {
+      "name": "baumtyp",
+      "filled": 80076,
+      "empty": 1066,
+      "distinct": 7,
+      "numeric": {
+       "min": 0.0,
+       "p50": 0.0,
+       "max": 6.0,
+       "not_numeric": 0
+      },
+      "values": [
+       [
+        "0",
+        43530
+       ],
+       [
+        "4",
+        12754
+       ],
+       [
+        "6",
+        10896
+       ],
+       [
+        "1",
+        5567
+       ],
+       [
+        "5",
+        3060
+       ],
+       [
+        "3",
+        2494
+       ],
+       [
+        "2",
+        1775
+       ]
+      ]
+     },
+     {
+      "name": "baumtyptext",
+      "filled": 81142,
+      "empty": 0,
+      "distinct": 6,
+      "values": [
+       [
+        "nicht zugeordnet",
+        44596
+       ],
+       [
+        "Höhe:10-20m, Breite:<10m",
+        15248
+       ],
+       [
+        "Obstbäume",
+        10896
+       ],
+       [
+        "Höhe:>20m, Breite:>10m",
+        5567
+       ],
+       [
+        "Höhe:<10m, Breite:<10m",
+        3060
+       ],
+       [
+        "Höhe:>20m, Breite:<10m",
+        1775
+       ]
+      ]
+     },
+     {
+      "name": "genauigkeit",
+      "filled": 81142,
+      "empty": 0,
+      "distinct": 8,
+      "values": [
+       [
+        "Bildschirmeingabe",
+        46654
+       ],
+       [
+        "Eingemessen",
+        29510
+       ],
+       [
+        "Unbekannte Qualität",
+        4162
+       ],
+       [
+        "Digitalisierung oder ELTA2",
+        677
+       ],
+       [
+        "Luftbild",
+        128
+       ],
+       [
+        "Eingemessen (Nachpflanzung)",
+        8
+       ],
+       [
+        "(unbekannter Standort)",
+        2
+       ],
+       [
+        "(neuer Baum)",
+        1
+       ]
+      ]
+     },
+     {
+      "name": "geometrie_gdo",
+      "filled": 0,
+      "empty": 81142,
+      "distinct": 0,
+      "values": []
+     },
+     {
+      "name": "kategorie",
+      "filled": 81142,
+      "empty": 0,
+      "distinct": 2,
+      "values": [
+       [
+        "Parkbaum",
+        57878
+       ],
+       [
+        "Strassenbaum",
+        23264
+       ]
+      ]
+     },
+     {
+      "name": "kronendurchmesser",
+      "filled": 81142,
+      "empty": 0,
+      "distinct": 39,
+      "numeric": {
+       "min": 1.0,
+       "p50": 7.0,
+       "max": 40.0,
+       "not_numeric": 0
+      },
+      "values": [
+       [
+        "8",
+        13815
+       ],
+       [
+        "2",
+        8494
+       ],
+       [
+        "4",
+        7164
+       ],
+       [
+        "6",
+        6736
+       ],
+       [
+        "5",
+        6713
+       ],
+       [
+        "3",
+        6695
+       ],
+       [
+        "7",
+        5328
+       ],
+       [
+        "10",
+        5041
+       ],
+       [
+        "9",
+        4371
+       ],
+       [
+        "1",
+        3472
+       ],
+       [
+        "12",
+        3149
+       ],
+       [
+        "11",
+        2125
+       ],
+       [
+        "14",
+        1647
+       ],
+       [
+        "13",
+        1475
+       ],
+       [
+        "15",
+        1273
+       ]
+      ]
+     },
+     {
+      "name": "objectid",
+      "filled": 81142,
+      "empty": 0,
+      "distinct": 81142,
+      "numeric": {
+       "min": 1.0,
+       "p50": 40572.0,
+       "max": 81142.0,
+       "not_numeric": 0
+      },
+      "top5": [
+       [
+        "1",
+        1
+       ],
+       [
+        "2",
+        1
+       ],
+       [
+        "3",
+        1
+       ],
+       [
+        "4",
+        1
+       ],
+       [
+        "5",
+        1
+       ]
+      ],
+      "examples": [
+       "1",
+       "2",
+       "3"
+      ]
+     },
+     {
+      "name": "pflanzjahr",
+      "filled": 72834,
+      "empty": 8308,
+      "distinct": 154,
+      "numeric": {
+       "min": 1665.0,
+       "p50": 2000.0,
+       "max": 2026.0,
+       "not_numeric": 0
+      },
+      "top5": [
+       [
+        "1980",
+        4779
+       ],
+       [
+        "2000",
+        4135
+       ],
+       [
+        "1960",
+        3568
+       ],
+       [
+        "1970",
+        3491
+       ],
+       [
+        "1990",
+        3458
+       ]
+      ],
+      "examples": [
+       "1980",
+       "2000",
+       "2000"
+      ]
+     },
+     {
+      "name": "poi_id",
+      "filled": 81142,
+      "empty": 0,
+      "distinct": 81142,
+      "top5": [
+       [
+        "nn-1851",
+        1
+       ],
+       [
+        "nn-1177",
+        1
+       ],
+       [
+        "nn-1130",
+        1
+       ],
+       [
+        "nn-1141",
+        1
+       ],
+       [
+        "nn-1129",
+        1
+       ]
+      ],
+      "examples": [
+       "nn-1851",
+       "nn-1177",
+       "nn-1130"
+      ]
+     },
+     {
+      "name": "quartier",
+      "filled": 81142,
+      "empty": 0,
+      "distinct": 35,
+      "values": [
+       [
+        "Altstetten",
+        6326
+       ],
+       [
+        "Unterstrass",
+        6029
+       ],
+       [
+        "Wollishofen",
+        5406
+       ],
+       [
+        "Höngg",
+        4833
+       ],
+       [
+        "Sihlfeld",
+        4225
+       ],
+       [
+        "Enge",
+        4134
+       ],
+       [
+        "Affoltern",
+        3922
+       ],
+       [
+        "Seebach",
+        3703
+       ],
+       [
+        "Friesenberg",
+        3464
+       ],
+       [
+        "Oerlikon",
+        3442
+       ],
+       [
+        "Weinegg",
+        2838
+       ],
+       [
+        "Albisrieden",
+        2395
+       ],
+       [
+        "Schwamendingen-Mitte",
+        2244
+       ],
+       [
+        "Wipkingen",
+        2098
+       ],
+       [
+        "Hirzenbach",
+        2097
+       ]
+      ]
+     },
+     {
+      "name": "status",
+      "filled": 81142,
+      "empty": 0,
+      "distinct": 7,
+      "values": [
+       [
+        "Grünanlage",
+        47954
+       ],
+       [
+        "Strassenbaum",
+        23257
+       ],
+       [
+        "Obst",
+        7608
+       ],
+       [
+        "Kanton",
+        2312
+       ],
+       [
+        "Strassenbaum (A)",
+        7
+       ],
+       [
+        "Wohnsiedlungen",
+        3
+       ],
+       [
+        "Schulen",
+        1
+       ]
+      ]
+     },
+     {
+      "name": "strasse",
+      "filled": 77725,
+      "empty": 3417,
+      "distinct": 10716,
+      "top5": [
+       [
+        "Uni Irchel, Winterthurerstr. 190",
+        2045
+       ],
+       [
+        "FH Nordheim",
+        1202
+       ],
+       [
+        "FH Enzenbühl",
+        1009
+       ],
+       [
+        "FH Sihlfeld, Aemtlerstr. 151",
+        983
+       ],
+       [
+        "FH Manegg, Thujastr. 60",
+        966
+       ]
+      ],
+      "examples": [
+       "Burghölzli",
+       "Tobelhofstr.",
+       "Rötelsteig 7-9"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "name": "wfs20_standorte",
+   "url": "https://www.ogd.stadt-zuerich.ch/wfs/geoportal/Baumkataster?service=WFS&version=2.0.0&request=GetFeature&typeNames=baumkataster_baumstandorte&outputFormat=application/vnd.geo%2Bjson",
+   "error": "<HTTPError 500: 'Internal Server Error'>"
+  },
+  {
+   "name": "wfs11_kronen",
+   "url": "https://www.ogd.stadt-zuerich.ch/wfs/geoportal/Baumkataster?service=WFS&version=1.1.0&request=GetFeature&typename=baumkataster_kronendurchmesser&outputFormat=GeoJSON",
+   "status": 200,
+   "content_type": "application/vnd.geo+json; charset=utf-8",
+   "content_disposition": null,
+   "bytes": 120722601,
+   "sha256": "f5d746d0b6cb4a45caf9d7f19b72ccdaa0e895539c28a7e9c95eed00cbe35d0d",
+   "kind": "json",
+   "head": "{\"type\": \"FeatureCollection\",\n \"bbox\": [ 8.461597, 47.320528, 8.614527, 47.436786],\n \"features\": [\n  {\"bbox\":[8.548524,47.422556,8.548604,47.422635],\"geometry\":{\"coordinates\":[[[[8.548604,47.422595],[",
+   "saved": "data/raw/wfs11_kronen_20261009.json",
+   "recon_error": "JSONDecodeError(\"Expecting ',' delimiter: line 15543 column 5359 (char 120722071)\")"
+  }
+ ]
+}
