@@ -1,0 +1,562 @@
+{
+ "run_utc": "2026-10-14T17:59:59+00:00",
+ "based_on": "wien/m0/RESULTS.json (commit be2a9c9); verdicts unchanged",
+ "fetch_log": [
+  "ogdwien:BAUMKATOGD: 233082 features from cache baumkatogd.json",
+  "ogdwien:BEZIRKSGRENZEOGD: 23 features from cache bezirksgrenzen.json"
+ ],
+ "diagnosis": {
+  "P10": {
+   "lead_number_matches": 109973,
+   "no_lead_number": 121906,
+   "lead_number_differs": 1203,
+   "no_lead_shapes_top15": [
+    [
+     "aaaaaaaaaaaaaa",
+     33216
+    ],
+    [
+     "aaaaaaaaaaaa",
+     12308
+    ],
+    [
+     "aaaaaaaaaaa",
+     10174
+    ],
+    [
+     "aaaaaaaaaa",
+     8726
+    ],
+    [
+     "aaaaaaaaaaaaa",
+     8670
+    ],
+    [
+     "aaaaaaaaaaa aa",
+     4649
+    ],
+    [
+     "aaaaaaaa aaaaa",
+     3079
+    ],
+    [
+     "aaaaaaaaaaaaa ",
+     2884
+    ],
+    [
+     "aaaaaaaaa",
+     2637
+    ],
+    [
+     "aaaaaaaaa aaaa",
+     2616
+    ],
+    [
+     "aaaaaaaaaaaa a",
+     2170
+    ],
+    [
+     "aaa, aaaaaaaaa",
+     1977
+    ],
+    [
+     "aaaaaaaaaa aaa",
+     1567
+    ],
+    [
+     "aaaaaaaa",
+     1488
+    ],
+    [
+     "aa, aaaaaaaaaa",
+     1449
+    ]
+   ],
+   "no_lead_samples": [
+    "Löschniggasse",
+    "Neuhaufenstraße",
+    "Sieveringer Straße",
+    "Dörfelstraße",
+    "Delugstraße",
+    "Sonnwendgasse",
+    "Anastasius-Grün-Gasse",
+    "Grinzinger Allee",
+    "Pasettistraße",
+    "Löschniggasse",
+    "Karl-Mark-Gasse",
+    "Melangasse",
+    "Viktor-Kaplan-Straße",
+    "Melangasse",
+    "Penzinger Straße",
+    "Melangasse",
+    "Penzinger Straße",
+    "Grinzinger Straße",
+    "Melangasse",
+    "Penzinger Straße",
+    "Leidesdorfgasse",
+    "Melangasse",
+    "Penzinger Straße",
+    "Melangasse",
+    "Melangasse"
+   ],
+   "differs_pairs_BEZIRK_vs_lead_top15": [
+    [
+     [
+      22,
+      21
+     ],
+     438
+    ],
+    [
+     [
+      18,
+      17
+     ],
+     410
+    ],
+    [
+     [
+      11,
+      1
+     ],
+     172
+    ],
+    [
+     [
+      13,
+      23
+     ],
+     69
+    ],
+    [
+     [
+      13,
+      14
+     ],
+     47
+    ],
+    [
+     [
+      14,
+      13
+     ],
+     24
+    ],
+    [
+     [
+      12,
+      23
+     ],
+     12
+    ],
+    [
+     [
+      16,
+      14
+     ],
+     11
+    ],
+    [
+     [
+      18,
+      19
+     ],
+     7
+    ],
+    [
+     [
+      11,
+      7
+     ],
+     4
+    ],
+    [
+     [
+      9,
+      19
+     ],
+     3
+    ],
+    [
+     [
+      19,
+      20
+     ],
+     2
+    ],
+    [
+     [
+      12,
+      5
+     ],
+     1
+    ],
+    [
+     [
+      5,
+      12
+     ],
+     1
+    ],
+    [
+     [
+      2,
+      11
+     ],
+     1
+    ]
+   ]
+  },
+  "P03": {
+   "values_top30": [
+    [
+     "Pyrus calleryana 'Chanticleer' (Zierbirne)",
+     4144
+    ],
+    [
+     "Juniperus chinensis 'Keteleeri' (Zypressen-Wacholder 'Ketele.')",
+     7
+    ],
+    [
+     "Baumgruppe",
+     3
+    ]
+   ],
+   "distinct": 3
+  },
+  "P09": {
+   "crown_code_text_pairs": [
+    [
+     [
+      "0",
+      "0-3 m"
+     ],
+     3
+    ],
+    [
+     [
+      "0",
+      "nicht bekannt"
+     ],
+     3983
+    ],
+    [
+     [
+      "1",
+      "0-3 m"
+     ],
+     73080
+    ],
+    [
+     [
+      "2",
+      "4-6 m"
+     ],
+     74368
+    ],
+    [
+     [
+      "2",
+      "7-9 m"
+     ],
+     1
+    ],
+    [
+     [
+      "3",
+      "7-9 m"
+     ],
+     49508
+    ],
+    [
+     [
+      "4",
+      "10-12 m"
+     ],
+     21845
+    ],
+    [
+     [
+      "4",
+      ">21 m"
+     ],
+     4
+    ],
+    [
+     [
+      "5",
+      "13-15 m"
+     ],
+     7239
+    ],
+    [
+     [
+      "5",
+      ">21 m"
+     ],
+     3
+    ],
+    [
+     [
+      "6",
+      "16-18 m"
+     ],
+     2109
+    ],
+    [
+     [
+      "6",
+      ">21 m"
+     ],
+     3
+    ],
+    [
+     [
+      "7",
+      "19-21 m"
+     ],
+     654
+    ],
+    [
+     [
+      "7",
+      ">21 m"
+     ],
+     3
+    ],
+    [
+     [
+      "8",
+      ">21 m"
+     ],
+     279
+    ]
+   ]
+  },
+  "P11": {
+   "BEZIRK_to_actual_top20": [
+    [
+     [
+      "no BEZIRK/geometry",
+      null
+     ],
+     595
+    ]
+   ],
+   "GEBIETSGRUPPE_top10": []
+  },
+  "P07": {
+   "n": 257,
+   "species_top10": [
+    [
+     "Ulmus 'New Horizon' (Resista Ulme)",
+     62
+    ],
+    [
+     "Celtis australis (Südlicher Zürgelbaum)",
+     49
+    ],
+    [
+     "Paulownia tomentosa (Blauglockenbaum)",
+     17
+    ],
+    [
+     "Platanus x acerifolia (Ahornblättrige Platane)",
+     13
+    ],
+    [
+     "Sophora japonica (Schnurbaum)",
+     12
+    ],
+    [
+     "Prunus subhirtella 'Accolade' (Jap. Blütenkirsche rosa)",
+     10
+    ],
+    [
+     "Salix alba 'Tristis' (Trauerweide)",
+     7
+    ],
+    [
+     "Robinia pseudoacacia (Scheinakazie)",
+     7
+    ],
+    [
+     "Tilia cordata (Winterlinde)",
+     6
+    ],
+    [
+     "Tilia tomentosa 'Brabant' (Silberlinde)",
+     6
+    ]
+   ],
+   "pflanzjahr": [
+    [
+     2016,
+     64
+    ],
+    [
+     2017,
+     65
+    ],
+    [
+     2018,
+     36
+    ],
+    [
+     2019,
+     39
+    ],
+    [
+     2020,
+     16
+    ],
+    [
+     2021,
+     12
+    ],
+    [
+     2022,
+     14
+    ],
+    [
+     2023,
+     2
+    ],
+    [
+     2024,
+     2
+    ],
+    [
+     2025,
+     4
+    ],
+    [
+     2026,
+     3
+    ]
+   ],
+   "stammumfang_cm_buckets": [
+    [
+     80,
+     179
+    ],
+    [
+     100,
+     38
+    ],
+    [
+     120,
+     17
+    ],
+    [
+     140,
+     5
+    ],
+    [
+     160,
+     3
+    ],
+    [
+     180,
+     4
+    ],
+    [
+     200,
+     3
+    ],
+    [
+     220,
+     2
+    ],
+    [
+     260,
+     1
+    ],
+    [
+     280,
+     1
+    ],
+    [
+     300,
+     1
+    ],
+    [
+     340,
+     1
+    ],
+    [
+     420,
+     1
+    ],
+    [
+     6060,
+     1
+    ]
+   ]
+  },
+  "P06": {
+   "before_2006": {
+    "n": 91807,
+    "last_digit_share": {
+     "0": 0.2063,
+     "1": 0.0649,
+     "2": 0.0792,
+     "3": 0.0749,
+     "4": 0.0856,
+     "5": 0.156,
+     "6": 0.0702,
+     "7": 0.1132,
+     "8": 0.0796,
+     "9": 0.0702
+    }
+   },
+   "from_2006": {
+    "n": 76241,
+    "last_digit_share": {
+     "0": 0.1272,
+     "1": 0.0986,
+     "2": 0.0977,
+     "3": 0.0929,
+     "4": 0.1021,
+     "5": 0.1433,
+     "6": 0.0908,
+     "7": 0.0738,
+     "8": 0.0831,
+     "9": 0.0905
+    }
+   }
+  },
+  "P12": {
+   "non_matching_top20": [
+    [
+     "Jungbaum wird gepflanzt",
+     3534
+    ],
+    [
+     "nicht bekannt",
+     24
+    ],
+    [
+     "unbekannt",
+     5
+    ],
+    [
+     "Laubbaum",
+     4
+    ],
+    [
+     "Baumgruppe",
+     3
+    ],
+    [
+     "Zanthoxylum simulans (Täuschende Stachelesche",
+     2
+    ],
+    [
+     "Obstbaum",
+     2
+    ]
+   ]
+  }
+ }
+}
