@@ -1,0 +1,46 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "BAUMKATOGD.828926322",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.45267191,
+          48.26719599
+        ]
+      },
+      "geometry_name": "SHAPE",
+      "properties": {
+        "OBJECTID": 828926322,
+        "BAUM_ID": 52309,
+        "DATENFUEHRUNG": "magistrat",
+        "BEZIRK": 21,
+        "OBJEKT_STRASSE": "21., Meistergasse 1, KTH",
+        "GEBIETSGRUPPE": "MA 10 - Kindertagesheim",
+        "GATTUNG_ART": "Tilia cordata (Winterlinde)",
+        "PFLANZJAHR": 0,
+        "PFLANZJAHR_TXT": "nicht definiert",
+        "STAMMUMFANG": 160,
+        "STAMMUMFANG_TXT": "160 cm",
+        "BAUMHOEHE": 3,
+        "BAUMHOEHE_TXT": "11-15 m",
+        "KRONENDURCHMESSER": 4,
+        "KRONENDURCHMESSER_TXT": "10-12 m",
+        "BAUMNUMMER": "6",
+        "SE_ANNO_CAD_DATA": null
+      }
+    }
+  ],
+  "totalFeatures": 233082,
+  "numberMatched": 233082,
+  "numberReturned": 1,
+  "timeStamp": "2026-10-14T17:32:54.585Z",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::4326"
+    }
+  }
+}

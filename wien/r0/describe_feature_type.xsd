@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:gml="http://www.opengis.net/gml" xmlns:ogdwien="https://www.wien.gv.at/ogdwien" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="https://www.wien.gv.at/ogdwien">
+  <xsd:import namespace="http://www.opengis.net/gml" schemaLocation="https://stp.wien.gv.at/geoserverneuogd/schemas/gml/3.1.1/base/gml.xsd"/>
+  <xsd:complexType name="BAUMKATOGDType">
+    <xsd:complexContent>
+      <xsd:extension base="gml:AbstractFeatureType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="OBJECTID" nillable="false" type="xsd:decimal"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SHAPE" nillable="true" type="gml:GeometryPropertyType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="BAUM_ID" nillable="true" type="xsd:decimal"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="DATENFUEHRUNG" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="BEZIRK" nillable="true" type="xsd:decimal"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="OBJEKT_STRASSE" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="GEBIETSGRUPPE" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="GATTUNG_ART" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PFLANZJAHR" nillable="true" type="xsd:decimal"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="PFLANZJAHR_TXT" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="STAMMUMFANG" nillable="true" type="xsd:decimal"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="STAMMUMFANG_TXT" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="BAUMHOEHE" nillable="true" type="xsd:decimal"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="BAUMHOEHE_TXT" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="KRONENDURCHMESSER" nillable="true" type="xsd:decimal"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="KRONENDURCHMESSER_TXT" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="BAUMNUMMER" nillable="true" type="xsd:string"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="SE_ANNO_CAD_DATA" nillable="true" type="xsd:hexBinary"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BAUMKATOGD" substitutionGroup="gml:_Feature" type="ogdwien:BAUMKATOGDType"/>
+</xsd:schema>
