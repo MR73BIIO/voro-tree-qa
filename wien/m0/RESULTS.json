@@ -1,0 +1,315 @@
+{
+  "run_utc": "2026-10-14T17:49:40+00:00",
+  "source": "https://data.wien.gv.at/daten/geo ogdwien:BAUMKATOGD",
+  "predictions_sha256": "f8150326e04ad3ea726198f44a4ff44a3977b863d1f566c9e1a27513ec16c310",
+  "fetch_log": [
+    "ogdwien:BAUMKATOGD: hits=233082, fetched=233082",
+    "ogdwien:BEZIRKSGRENZEOGD: hits=23, fetched=23"
+  ],
+  "results": [
+    {
+      "id": "P01",
+      "measure": "GEBIETSGRUPPE contains straße/strasse",
+      "value": 116349,
+      "threshold": ">= 99000",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "id": "P02",
+      "measure": "share DATENFUEHRUNG == 'magistrat'",
+      "value": 1.0,
+      "threshold": ">= 0.90",
+      "verdict": "CONFIRMED",
+      "extra": {
+        "count": 233082
+      }
+    },
+    {
+      "id": "P03",
+      "measure": "GATTUNG_ART contains leer/pflanzstandort/baumgruppe",
+      "value": 4154,
+      "threshold": ">= 1000",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "id": "P04",
+      "measure": "share PFLANZJAHR == 0",
+      "value": 0.2790176847633022,
+      "threshold": ">= 0.50",
+      "verdict": "REFUTED",
+      "extra": {
+        "count": 65034,
+        "null": 0
+      }
+    },
+    {
+      "id": "P05",
+      "measure": "PFLANZJAHR==0 <=> PFLANZJAHR_TXT=='nicht definiert'",
+      "value": 1.0,
+      "threshold": ">= 0.999",
+      "verdict": "CONFIRMED",
+      "extra": {
+        "disagree": 0
+      }
+    },
+    {
+      "id": "P06",
+      "measure": "1<=PFLANZJAHR<2006: share of years ending 0 or 5",
+      "value": 0.36225995839097236,
+      "threshold": ">= 0.30",
+      "verdict": "CONFIRMED",
+      "extra": {
+        "n": 91807,
+        "count": 33258
+      }
+    },
+    {
+      "id": "P07",
+      "measure": "PFLANZJAHR>=2016: share STAMMUMFANG>=80 cm",
+      "value": 0.005198009789248008,
+      "threshold": "<= 0.005",
+      "verdict": "REFUTED",
+      "extra": {
+        "n": 49442,
+        "count": 257
+      }
+    },
+    {
+      "id": "P08",
+      "measure": "share STAMMUMFANG == 0 or null",
+      "value": 0.017139890682249165,
+      "threshold": "<= 0.10",
+      "verdict": "CONFIRMED",
+      "extra": {
+        "count": 3995
+      }
+    },
+    {
+      "id": "P09",
+      "measure": "STAMMUMFANG == number in TXT; height/crown code->text 1:1",
+      "value": {
+        "stammumfang_agree": 1.0,
+        "codes_1to1": false
+      },
+      "threshold": ">= 0.995 and 1:1",
+      "verdict": "REFUTED",
+      "extra": {
+        "code_maps": {
+          "BAUMHOEHE": {
+            "0": [
+              "nicht bekannt"
+            ],
+            "1": [
+              "0-5 m"
+            ],
+            "2": [
+              "6-10 m"
+            ],
+            "3": [
+              "11-15 m"
+            ],
+            "4": [
+              "16-20 m"
+            ],
+            "5": [
+              "21-25 m"
+            ],
+            "6": [
+              "26-30 m"
+            ],
+            "7": [
+              "31-35 m"
+            ],
+            "8": [
+              "> 35 m"
+            ]
+          },
+          "KRONENDURCHMESSER": {
+            "0": [
+              "0-3 m",
+              "nicht bekannt"
+            ],
+            "1": [
+              "0-3 m"
+            ],
+            "2": [
+              "4-6 m",
+              "7-9 m"
+            ],
+            "3": [
+              "7-9 m"
+            ],
+            "4": [
+              "10-12 m",
+              ">21 m"
+            ],
+            "5": [
+              "13-15 m",
+              ">21 m"
+            ],
+            "6": [
+              "16-18 m",
+              ">21 m"
+            ],
+            "7": [
+              "19-21 m",
+              ">21 m"
+            ],
+            "8": [
+              ">21 m"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "P10",
+      "measure": "BEZIRK == leading number of OBJEKT_STRASSE",
+      "value": 0.4718210758445526,
+      "threshold": ">= 0.99",
+      "verdict": "REFUTED",
+      "extra": {
+        "disagree": 123109
+      }
+    },
+    {
+      "id": "P11",
+      "measure": "point inside own district polygon",
+      "value": 0.9974472503239203,
+      "threshold": ">= 0.98",
+      "verdict": "CONFIRMED",
+      "extra": {
+        "disagree": 595,
+        "district_key": "BEZNR",
+        "districts": 23
+      }
+    },
+    {
+      "id": "P12",
+      "measure": "GATTUNG_ART matches 'Latin (German)'",
+      "value": 0.9846663406011619,
+      "threshold": ">= 0.95",
+      "verdict": "CONFIRMED",
+      "extra": {
+        "non_matching": 3574
+      }
+    }
+  ],
+  "description_not_scored": {
+    "records": 233082,
+    "DATENFUEHRUNG": [
+      [
+        "magistrat",
+        233082
+      ]
+    ],
+    "GEBIETSGRUPPE_top25": [
+      [
+        "MA 28 - Straße, Grünanlage",
+        100105
+      ],
+      [
+        "MA 42 - Parkanlage",
+        76094
+      ],
+      [
+        "MA 56 - Schule",
+        7148
+      ],
+      [
+        "MA 10 - Kindertagesheim",
+        6775
+      ],
+      [
+        "MA 44 - Bad",
+        5254
+      ],
+      [
+        "MA 45 - Wiener Gewässer",
+        2798
+      ],
+      [
+        "MA 31 - Wiener Wasser",
+        2391
+      ],
+      [
+        "MA 34 - Amtshaus",
+        1791
+      ],
+      [
+        "Hauptstraße B221",
+        1747
+      ],
+      [
+        "Hauptstraße B3/B7",
+        1729
+      ],
+      [
+        "MA 45 - Donauinsel",
+        1656
+      ],
+      [
+        "MA 45 - Rechter Donaudamm",
+        1651
+      ],
+      [
+        "MA 42 - Betriebsflächen",
+        1593
+      ],
+      [
+        "MA 45 - Linke Dammverstärkung",
+        1581
+      ],
+      [
+        "Hauptstraße B8/B3b/S2",
+        1461
+      ],
+      [
+        "Hauptstraße B227II",
+        1457
+      ],
+      [
+        "MA 69 - Immobilienmanagement",
+        1196
+      ],
+      [
+        "Hauptstraße B14",
+        1187
+      ],
+      [
+        "Hauptstraße B17",
+        949
+      ],
+      [
+        "Wiener Netze",
+        925
+      ],
+      [
+        "MA 45 - Donauhochwasserschutz-Konkurrenz",
+        874
+      ],
+      [
+        "MA 51 - Sportplatz verpachtet",
+        854
+      ],
+      [
+        "Hauptstraße B3/B3D",
+        850
+      ],
+      [
+        "Hauptstraße B225",
+        832
+      ],
+      [
+        "Hauptstraße B227I",
+        795
+      ]
+    ],
+    "PFLANZJAHR_TXT_non_numeric": [
+      [
+        "nicht definiert",
+        65034
+      ]
+    ]
+  }
+}
