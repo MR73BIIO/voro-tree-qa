@@ -1,0 +1,130 @@
+{
+  "run_utc": "2026-10-14T18:10:17+00:00",
+  "explains": "Puls #35 (M0 OUTCOME be2a9c9)",
+  "predictions_sha256": "8a893fa3fbcafda836e5fab9254a1e52d0bce3f8a4fe81fc26899bff82a73b1f",
+  "fetch_log": [
+    "ogdwien:BAUMKATOGD: 233082 features from cache baumkatogd.json",
+    "ogdwien:BEZIRKSGRENZEOGD: 23 features from cache bezirksgrenzen.json"
+  ],
+  "results": [
+    {
+      "id": "H1",
+      "measure": "share PFLANZJAHR=0: MA 42 minus MA 28",
+      "value": 0.2037633498467632,
+      "threshold": ">= 0.10",
+      "verdict": "CONFIRMED",
+      "extra": {
+        "MA28": {
+          "n": 100105,
+          "zero": 3607,
+          "share": 0.036032166225463264
+        },
+        "MA42": {
+          "n": 76094,
+          "zero": 18247,
+          "share": 0.23979551607222646
+        }
+      }
+    },
+    {
+      "id": "H2",
+      "measure": "prefix != BEZIRK: share within 200 m of prefix-district boundary",
+      "value": 0.457190357439734,
+      "threshold": ">= 0.80",
+      "verdict": "REFUTED",
+      "extra": {
+        "n": 1203,
+        "within_200m": 550,
+        "no_geometry": 0,
+        "prefix_not_a_district": 0,
+        "median_m": 211.5,
+        "p90_m": 4316.1,
+        "max_m": 6622.8
+      }
+    },
+    {
+      "id": "H3",
+      "measure": "PFLANZJAHR>=2016 & STAMMUMFANG>=80: share on top 10 OBJEKT_STRASSE",
+      "value": 0.3424124513618677,
+      "threshold": ">= 0.50",
+      "verdict": "REFUTED",
+      "extra": {
+        "n": 257,
+        "on_top10": 88,
+        "distinct_sites": 137,
+        "top10": [
+          [
+            "Hasnerstraße",
+            33
+          ],
+          [
+            "Gudrunstraße",
+            10
+          ],
+          [
+            "21., Parkanlage Lorettowiese, MA42",
+            9
+          ],
+          [
+            "22., Untere Alte Donau, MA45",
+            8
+          ],
+          [
+            "15., Parkanlage Moshe-Jahoda-Platz, MA42",
+            6
+          ],
+          [
+            "Angyalföldstraße",
+            6
+          ],
+          [
+            "Rotenturmstraße",
+            4
+          ],
+          [
+            "O'Brien-Gasse",
+            4
+          ],
+          [
+            "Grellgasse",
+            4
+          ],
+          [
+            "Gerhard-Bronner-Straße",
+            4
+          ]
+        ]
+      }
+    },
+    {
+      "id": "H4",
+      "measure": "'Jungbaum wird gepflanzt': share with PFLANZJAHR=0 and STAMMUMFANG 0/null",
+      "value": 0.9889643463497453,
+      "threshold": ">= 0.95",
+      "verdict": "CONFIRMED",
+      "extra": {
+        "n": 3534,
+        "placeholder": 3495,
+        "pflanzjahr_top10": [
+          [
+            0,
+            3516
+          ],
+          [
+            2025,
+            9
+          ],
+          [
+            2026,
+            7
+          ],
+          [
+            2024,
+            2
+          ]
+        ],
+        "stammumfang_zero_or_null": 3505
+      }
+    }
+  ]
+}
