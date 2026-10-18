@@ -1,0 +1,181 @@
+{
+  "m0": "Baumbestand Berlin",
+  "measured_utc": "2026-10-18T15:17:44Z",
+  "prediction_sha256": "5fbdbeeda17641e8ab652c008e8d2065d9791e3676baf1b614f41633fa13a710",
+  "harvest_sha256": "844546b787250e62e2470e9596d2184abbd0a81275586a2c9da72731ec7ad25c",
+  "records": 962545,
+  "trees": 956347,
+  "score": "9/14",
+  "verdict_overall": "REFUTED",
+  "decision": "D0 before any use",
+  "points": {
+    "B01": {
+      "question": "harvest complete, no duplicate gisid",
+      "value": {
+        "anlagen": {
+          "matched": 527780,
+          "harvested": 527780,
+          "dup_gisid": 0,
+          "r0_count": 527780
+        },
+        "strassen": {
+          "matched": 434765,
+          "harvested": 434765,
+          "dup_gisid": 0,
+          "r0_count": 434765
+        }
+      },
+      "rule": "harvested = numberMatched, dup 0",
+      "verdict": "CONFIRMED"
+    },
+    "B02": {
+      "question": "shells % of all records",
+      "value": {
+        "pct": 0.644,
+        "shells": 6198,
+        "records": 962545,
+        "anlagen": 4609,
+        "strassen": 1589
+      },
+      "rule": ">= 5",
+      "verdict": "REFUTED"
+    },
+    "B03": {
+      "question": "share of shells in the longest contiguous gisid run, per layer",
+      "value": {
+        "anlagen": {
+          "longest_run": 4609,
+          "shells": 4609,
+          "pct": 100.0
+        },
+        "strassen": {
+          "longest_run": 1585,
+          "shells": 1589,
+          "pct": 99.748
+        }
+      },
+      "rule": ">= 90 in each layer with shells",
+      "verdict": "CONFIRMED"
+    },
+    "B04": {
+      "question": "pflanzjahr + standalter = 2026 where pflanzjahr is a number",
+      "value": {
+        "pct": 99.947,
+        "ok": 768105,
+        "n": 768513
+      },
+      "rule": ">= 99",
+      "verdict": "CONFIRMED"
+    },
+    "B05": {
+      "question": "standalter = 0 where pflanzjahr is empty",
+      "value": {
+        "pct": 10.848,
+        "ok": 20377,
+        "n": 187834
+      },
+      "rule": ">= 95",
+      "verdict": "REFUTED"
+    },
+    "B06": {
+      "question": "gattung filled, gattung_deutsch empty % of trees",
+      "value": {
+        "pct": 2.59,
+        "n": 24769
+      },
+      "rule": ">= 2",
+      "verdict": "CONFIRMED"
+    },
+    "B07": {
+      "question": "art_bot values with >= 2 different art_dtsch",
+      "value": {
+        "n": 0,
+        "art_bot_values": 913
+      },
+      "rule": ">= 3",
+      "verdict": "REFUTED"
+    },
+    "B08": {
+      "question": "kronedurch = 0 % of trees, per layer",
+      "value": {
+        "anlagen": {
+          "pct": 12.383,
+          "n": 64782
+        },
+        "strassen": {
+          "pct": 8.909,
+          "n": 38590
+        }
+      },
+      "rule": ">= 5 in each layer",
+      "verdict": "CONFIRMED"
+    },
+    "B09": {
+      "question": "implausible height / girth / planting year",
+      "value": {
+        "n": 149,
+        "pct": 0.016
+      },
+      "rule": ">= 1 and <= 0.1 %",
+      "verdict": "CONFIRMED"
+    },
+    "B10": {
+      "question": "trees on a shared point % of trees",
+      "value": {
+        "pct": 0.031,
+        "trees": 298,
+        "points": 148
+      },
+      "rule": ">= 0.5",
+      "verdict": "REFUTED"
+    },
+    "B11": {
+      "question": "pitid present in both layers",
+      "value": {
+        "n": 0
+      },
+      "rule": ">= 1",
+      "verdict": "REFUTED"
+    },
+    "B12": {
+      "question": "distinct non-empty bezirk values",
+      "value": {
+        "n": 12,
+        "values": {
+          "Steglitz-Zehlendorf": 115424,
+          "Pankow": 99561,
+          "Marzahn-Hellersdorf": 96978,
+          "Reinickendorf": 90869,
+          "Charlottenburg-Wilmersdorf": 88758,
+          "Lichtenberg": 81916,
+          "Treptow-Köpenick": 78295,
+          "Spandau": 74759,
+          "Mitte": 67706,
+          "Tempelhof-Schöneberg": 62334,
+          "Neukölln": 57881,
+          "Friedrichshain-Kreuzberg": 41768
+        }
+      },
+      "rule": "== 12",
+      "verdict": "CONFIRMED"
+    },
+    "B13": {
+      "question": "street-name mismatch % (Strassenbaeume, both fields filled)",
+      "value": {
+        "pct": 15.787,
+        "n": 67149,
+        "of": 425337
+      },
+      "rule": ">= 1",
+      "verdict": "CONFIRMED"
+    },
+    "B14": {
+      "question": "records without point or with X/Y = 0",
+      "value": {
+        "n": 0
+      },
+      "rule": "== 0",
+      "verdict": "CONFIRMED"
+    }
+  }
+}
