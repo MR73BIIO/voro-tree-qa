@@ -97,7 +97,7 @@ Each measuring script checks the SHA-256 of its prediction file and of the froze
 
 ## Cite
 
-All versions: https://doi.org/10.5281/zenodo.23267379 · v0.1 (Zürich): https://doi.org/10.5281/zenodo.23267380
+All versions: https://doi.org/10.5281/zenodo.23267379 · v0.2 (Zürich, Wien, Berlin): https://doi.org/10.5281/zenodo.23455971 · v0.1 (Zürich): https://doi.org/10.5281/zenodo.23267380
 
 ## Data
 
