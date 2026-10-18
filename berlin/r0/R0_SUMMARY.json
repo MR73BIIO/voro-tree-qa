@@ -1,0 +1,955 @@
+{
+  "r0": "Baumbestand Berlin",
+  "wfs": "https://gdi.berlin.de/services/wfs/baumbestand",
+  "measured_utc": "2026-10-18T14:26:49Z",
+  "output_format": "application/json",
+  "windows": 10,
+  "sample_per_type": 2000,
+  "sortby": "gisid",
+  "layers": [
+    {
+      "name": "baumbestand:anlagenbaeume",
+      "title": "Baumbestand Berlin - Anlagenbäume",
+      "default_crs": "urn:ogc:def:crs:EPSG::25833",
+      "number_matched": 527780,
+      "fields_declared": [
+        {
+          "name": "gisid",
+          "type": "string"
+        },
+        {
+          "name": "pitid",
+          "type": "string"
+        },
+        {
+          "name": "standortnr",
+          "type": "string"
+        },
+        {
+          "name": "kennzeich",
+          "type": "string"
+        },
+        {
+          "name": "namenr",
+          "type": "string"
+        },
+        {
+          "name": "art_dtsch",
+          "type": "string"
+        },
+        {
+          "name": "art_bot",
+          "type": "string"
+        },
+        {
+          "name": "gattung_deutsch",
+          "type": "string"
+        },
+        {
+          "name": "gattung",
+          "type": "string"
+        },
+        {
+          "name": "art_gruppe",
+          "type": "string"
+        },
+        {
+          "name": "pflanzjahr",
+          "type": "string"
+        },
+        {
+          "name": "standalter",
+          "type": "double"
+        },
+        {
+          "name": "kronedurch",
+          "type": "double"
+        },
+        {
+          "name": "stammumfg",
+          "type": "int"
+        },
+        {
+          "name": "baumhoehe",
+          "type": "double"
+        },
+        {
+          "name": "eigentuemer",
+          "type": "string"
+        },
+        {
+          "name": "bezirk",
+          "type": "string"
+        },
+        {
+          "name": "geom",
+          "type": "PointPropertyType"
+        },
+        {
+          "name": "anlagenbaeume",
+          "type": "anlagenbaeumeType"
+        }
+      ],
+      "sample_size": 2000,
+      "windows_start_index": [
+        0,
+        58620,
+        117240,
+        175860,
+        234480,
+        293100,
+        351720,
+        410340,
+        468960,
+        527580
+      ],
+      "geometry_types": {
+        "Point": 2000
+      },
+      "sample_bbox": [
+        375176.71079991,
+        5804928.82199959,
+        409420.37699998,
+        5833992.16949969
+      ],
+      "fields": {
+        "gisid": {
+          "present_pct": 100.0,
+          "filled_pct": 100.0,
+          "empty_markers": {},
+          "distinct_in_sample": 2000,
+          "top5": {
+            "00000000_00000000": 1,
+            "00008100_000be4d0": 1,
+            "00008100_000be4d2": 1,
+            "00008100_000be4f2": 1,
+            "00008100_000bf296": 1
+          }
+        },
+        "pitid": {
+          "present_pct": 100.0,
+          "filled_pct": 90.0,
+          "empty_markers": {},
+          "distinct_in_sample": 1800,
+          "top5": {
+            "00000000:00000000": 1,
+            "00008100:000be4d0": 1,
+            "00008100:000be4d2": 1,
+            "00008100:000be4f2": 1,
+            "00008100:000bf296": 1
+          }
+        },
+        "standortnr": {
+          "present_pct": 100.0,
+          "filled_pct": 89.95,
+          "empty_markers": {},
+          "distinct_in_sample": 1275,
+          "numeric": {
+            "n": 1543,
+            "min": 1.0,
+            "median": 698.0,
+            "max": 494655.0,
+            "zero": 0
+          },
+          "top5": {
+            "5": 10,
+            "4": 10,
+            "2": 10,
+            "14": 9,
+            "12": 8
+          }
+        },
+        "kennzeich": {
+          "present_pct": 100.0,
+          "filled_pct": 89.95,
+          "empty_markers": {},
+          "distinct_in_sample": 88,
+          "numeric": {
+            "n": 1534,
+            "min": 6.0,
+            "median": 70653.0,
+            "max": 2300196.0,
+            "zero": 0
+          },
+          "top5": {
+            "2300161": 200,
+            "19GA01": 188,
+            "00475": 182,
+            "326800": 151,
+            "05006": 93
+          }
+        },
+        "namenr": {
+          "present_pct": 100.0,
+          "filled_pct": 89.95,
+          "empty_markers": {},
+          "distinct_in_sample": 88,
+          "top5": {
+            "Schleipfuhl, 161": 200,
+            "Fennpfuhlpark": 188,
+            "Friedhof Ruhleben": 182,
+            "Volkspark Rehberge, Revierunterkunft": 151,
+            "Ruppiner Chaussee, Grünanlage": 93
+          }
+        },
+        "art_dtsch": {
+          "present_pct": 100.0,
+          "filled_pct": 89.8,
+          "empty_markers": {
+            "Unbekannt": 3
+          },
+          "distinct_in_sample": 134,
+          "top5": {
+            "Spitz-Ahorn": 251,
+            "Sommer-Eiche, Stiel-Eiche": 189,
+            "Douglasfichte, Douglasie": 91,
+            "Feld-Ahorn": 87,
+            "Robinie": 73
+          }
+        },
+        "art_bot": {
+          "present_pct": 100.0,
+          "filled_pct": 89.8,
+          "empty_markers": {
+            "Unbekannt": 3
+          },
+          "distinct_in_sample": 136,
+          "top5": {
+            "Acer platanoides": 251,
+            "Quercus robur": 189,
+            "Pseudotsuga menziesii": 91,
+            "Acer campestre": 87,
+            "Acer negundo": 73
+          }
+        },
+        "gattung_deutsch": {
+          "present_pct": 100.0,
+          "filled_pct": 85.85,
+          "empty_markers": {},
+          "distinct_in_sample": 47,
+          "values": {
+            "Ahorn": 512,
+            "Eiche": 209,
+            "Linde": 121,
+            "Kiefer": 94,
+            "Douglasie": 94,
+            "Robinie": 73,
+            "Pappel": 72,
+            "Hainbuche": 66,
+            "Ulme": 63,
+            "Esche": 59,
+            "Buche": 56,
+            "Rosskastanie": 50,
+            "Birke": 46,
+            "Weide": 26,
+            "Fichte": 20
+          }
+        },
+        "gattung": {
+          "present_pct": 100.0,
+          "filled_pct": 89.8,
+          "empty_markers": {
+            "Unbekannt": 3
+          },
+          "distinct_in_sample": 48,
+          "values": {
+            "Acer": 512,
+            "Quercus": 209,
+            "Tilia": 121,
+            "Pinus": 94,
+            "Pseudotsuga": 94,
+            "Prunus": 79,
+            "Robinia": 73,
+            "Populus": 72,
+            "Carpinus": 66,
+            "Ulmus": 63,
+            "Fraxinus": 59,
+            "Fagus": 56,
+            "Aesculus": 50,
+            "Betula": 46,
+            "Salix": 26
+          }
+        },
+        "art_gruppe": {
+          "present_pct": 100.0,
+          "filled_pct": 89.95,
+          "empty_markers": {},
+          "distinct_in_sample": 4,
+          "values": {
+            "Laubbäume": 1546,
+            "Nadelbäume": 241,
+            "Großsträucher": 6,
+            "Obstbäume": 6
+          }
+        },
+        "pflanzjahr": {
+          "present_pct": 100.0,
+          "filled_pct": 59.5,
+          "empty_markers": {},
+          "distinct_in_sample": 100,
+          "numeric": {
+            "n": 1190,
+            "min": 1893.0,
+            "median": 1991.0,
+            "max": 2025.0,
+            "zero": 0
+          },
+          "top5": {
+            "2001": 93,
+            "1982": 75,
+            "1991": 44,
+            "2018": 42,
+            "1990": 40
+          }
+        },
+        "standalter": {
+          "present_pct": 100.0,
+          "filled_pct": 62.55,
+          "empty_markers": {},
+          "distinct_in_sample": 101,
+          "numeric": {
+            "n": 1251,
+            "min": 0.0,
+            "median": 32.0,
+            "max": 133.0,
+            "zero": 61
+          },
+          "top5": {
+            "25": 93,
+            "44": 75,
+            "0": 61,
+            "35": 44,
+            "8": 42
+          }
+        },
+        "kronedurch": {
+          "present_pct": 100.0,
+          "filled_pct": 77.7,
+          "empty_markers": {},
+          "distinct_in_sample": 26,
+          "numeric": {
+            "n": 1554,
+            "min": 0.0,
+            "median": 6.0,
+            "max": 18.0,
+            "zero": 216
+          },
+          "values": {
+            "0": 216,
+            "6": 199,
+            "5": 195,
+            "7": 173,
+            "4": 170,
+            "8": 139,
+            "9": 89,
+            "3": 87,
+            "10": 72,
+            "2": 60,
+            "12": 35,
+            "11": 27,
+            "1": 19,
+            "14": 15,
+            "15": 12
+          }
+        },
+        "stammumfg": {
+          "present_pct": 100.0,
+          "filled_pct": 89.4,
+          "empty_markers": {},
+          "distinct_in_sample": 285,
+          "numeric": {
+            "n": 1788,
+            "min": 13.0,
+            "median": 86.0,
+            "max": 1017.0,
+            "zero": 0
+          },
+          "top5": {
+            "94": 38,
+            "126": 34,
+            "79": 32,
+            "63": 32,
+            "141": 32
+          }
+        },
+        "baumhoehe": {
+          "present_pct": 100.0,
+          "filled_pct": 84.5,
+          "empty_markers": {},
+          "distinct_in_sample": 38,
+          "numeric": {
+            "n": 1690,
+            "min": 0.0,
+            "median": 13.0,
+            "max": 36.0,
+            "zero": 118
+          },
+          "values": {
+            "12": 147,
+            "0": 118,
+            "25": 98,
+            "14": 96,
+            "15": 96,
+            "20": 95,
+            "10": 89,
+            "5": 81,
+            "7": 78,
+            "17": 75,
+            "13": 71,
+            "18": 70,
+            "9": 68,
+            "16": 59,
+            "22": 58
+          }
+        },
+        "eigentuemer": {
+          "present_pct": 100.0,
+          "filled_pct": 100.0,
+          "empty_markers": {},
+          "distinct_in_sample": 1,
+          "values": {
+            "Land Berlin": 2000
+          }
+        },
+        "bezirk": {
+          "present_pct": 100.0,
+          "filled_pct": 89.95,
+          "empty_markers": {},
+          "distinct_in_sample": 12,
+          "values": {
+            "Pankow": 373,
+            "Lichtenberg": 257,
+            "Marzahn-Hellersdorf": 218,
+            "Steglitz-Zehlendorf": 213,
+            "Charlottenburg-Wilmersdorf": 211,
+            "Mitte": 204,
+            "Reinickendorf": 200,
+            "Spandau": 57,
+            "Neukölln": 25,
+            "Tempelhof-Schöneberg": 20,
+            "Treptow-Köpenick": 20,
+            "Friedrichshain-Kreuzberg": 1
+          }
+        },
+        "anlagenbaeume": {
+          "present_pct": 0.0,
+          "filled_pct": 0.0,
+          "empty_markers": {},
+          "distinct_in_sample": 0,
+          "values": {}
+        }
+      }
+    },
+    {
+      "name": "baumbestand:strassenbaeume",
+      "title": "Baumbestand Berlin - Straßenbäume",
+      "default_crs": "urn:ogc:def:crs:EPSG::25833",
+      "number_matched": 434765,
+      "fields_declared": [
+        {
+          "name": "gisid",
+          "type": "string"
+        },
+        {
+          "name": "pitid",
+          "type": "string"
+        },
+        {
+          "name": "standortnr",
+          "type": "string"
+        },
+        {
+          "name": "kennzeich",
+          "type": "string"
+        },
+        {
+          "name": "namenr",
+          "type": "string"
+        },
+        {
+          "name": "art_dtsch",
+          "type": "string"
+        },
+        {
+          "name": "art_bot",
+          "type": "string"
+        },
+        {
+          "name": "gattung_deutsch",
+          "type": "string"
+        },
+        {
+          "name": "gattung",
+          "type": "string"
+        },
+        {
+          "name": "art_gruppe",
+          "type": "string"
+        },
+        {
+          "name": "strnr",
+          "type": "string"
+        },
+        {
+          "name": "strname",
+          "type": "string"
+        },
+        {
+          "name": "hausnr",
+          "type": "string"
+        },
+        {
+          "name": "zusatz",
+          "type": "string"
+        },
+        {
+          "name": "pflanzjahr",
+          "type": "string"
+        },
+        {
+          "name": "standalter",
+          "type": "double"
+        },
+        {
+          "name": "kronedurch",
+          "type": "double"
+        },
+        {
+          "name": "stammumfg",
+          "type": "int"
+        },
+        {
+          "name": "baumhoehe",
+          "type": "double"
+        },
+        {
+          "name": "eigentuemer",
+          "type": "string"
+        },
+        {
+          "name": "bezirk",
+          "type": "string"
+        },
+        {
+          "name": "geom",
+          "type": "PointPropertyType"
+        },
+        {
+          "name": "strassenbaeume",
+          "type": "strassenbaeumeType"
+        }
+      ],
+      "sample_size": 2000,
+      "windows_start_index": [
+        0,
+        48285,
+        96570,
+        144855,
+        193140,
+        241425,
+        289710,
+        337995,
+        386280,
+        434565
+      ],
+      "geometry_types": {
+        "Point": 2000
+      },
+      "sample_bbox": [
+        373995.17609991,
+        5800428.13539968,
+        413035.75469999,
+        5833490.50359965
+      ],
+      "fields": {
+        "gisid": {
+          "present_pct": 100.0,
+          "filled_pct": 100.0,
+          "empty_markers": {},
+          "distinct_in_sample": 2000,
+          "top5": {
+            "00008100_000bbafb": 1,
+            "00008100_000bbafd": 1,
+            "00008100_000bbafe": 1,
+            "00008100_000bbaff": 1,
+            "00008100_000bbb00": 1
+          }
+        },
+        "pitid": {
+          "present_pct": 100.0,
+          "filled_pct": 90.0,
+          "empty_markers": {},
+          "distinct_in_sample": 1800,
+          "top5": {
+            "00008100:000bbafb": 1,
+            "00008100:000bbafd": 1,
+            "00008100:000bbafe": 1,
+            "00008100:000bbaff": 1,
+            "00008100:000bbb00": 1
+          }
+        },
+        "standortnr": {
+          "present_pct": 100.0,
+          "filled_pct": 90.0,
+          "empty_markers": {},
+          "distinct_in_sample": 914,
+          "top5": {
+            "20": 20,
+            "30": 19,
+            "26": 18,
+            "25": 18,
+            "22": 18
+          }
+        },
+        "kennzeich": {
+          "present_pct": 100.0,
+          "filled_pct": 90.0,
+          "empty_markers": {},
+          "distinct_in_sample": 127,
+          "numeric": {
+            "n": 1468,
+            "min": 1.0,
+            "median": 17835.0,
+            "max": 150524.0,
+            "zero": 0
+          },
+          "top5": {
+            "42201": 120,
+            "01413": 114,
+            "44012": 86,
+            "44024": 83,
+            "04665-Str": 77
+          }
+        },
+        "namenr": {
+          "present_pct": 100.0,
+          "filled_pct": 90.0,
+          "empty_markers": {},
+          "distinct_in_sample": 127,
+          "top5": {
+            "Parkstraße (Weißensee)": 120,
+            "Fritz-Erler-Allee": 114,
+            "Quedlinburger Straße": 86,
+            "Riesaer Straße": 83,
+            "WAHNFRIEDSTR.": 77
+          }
+        },
+        "art_dtsch": {
+          "present_pct": 100.0,
+          "filled_pct": 90.0,
+          "empty_markers": {},
+          "distinct_in_sample": 86,
+          "top5": {
+            "Winter-Linde": 254,
+            "Holländische Linde": 202,
+            "Spitz-Ahorn": 164,
+            "Silber-Linde": 103,
+            "Amerikanische Rot-Eiche": 101
+          }
+        },
+        "art_bot": {
+          "present_pct": 100.0,
+          "filled_pct": 90.0,
+          "empty_markers": {},
+          "distinct_in_sample": 87,
+          "top5": {
+            "Tilia cordata": 254,
+            "Tilia intermedia": 202,
+            "Acer platanoides": 164,
+            "Tilia tomentosa": 103,
+            "Quercus rubra": 101
+          }
+        },
+        "gattung_deutsch": {
+          "present_pct": 100.0,
+          "filled_pct": 87.8,
+          "empty_markers": {},
+          "distinct_in_sample": 26,
+          "values": {
+            "Linde": 851,
+            "Ahorn": 310,
+            "Eiche": 254,
+            "Rosskastanie": 80,
+            "Esche": 42,
+            "Hainbuche": 39,
+            "Mehlbeere": 29,
+            "Weißdorn": 24,
+            "Gleditschie": 18,
+            "Robinie": 14,
+            "Schnurbaum": 12,
+            "Hasel": 12,
+            "Birke": 11,
+            "Parrotie": 10,
+            "Pappel": 8
+          }
+        },
+        "gattung": {
+          "present_pct": 100.0,
+          "filled_pct": 90.0,
+          "empty_markers": {},
+          "distinct_in_sample": 27,
+          "values": {
+            "Tilia": 851,
+            "Acer": 310,
+            "Quercus": 254,
+            "Aesculus": 80,
+            "Prunus": 44,
+            "Fraxinus": 42,
+            "Carpinus": 39,
+            "Sorbus": 29,
+            "Crataegus": 24,
+            "Gleditsia": 18,
+            "Robinia": 14,
+            "Sophora": 12,
+            "Corylus": 12,
+            "Betula": 11,
+            "Parrotia": 10
+          }
+        },
+        "art_gruppe": {
+          "present_pct": 100.0,
+          "filled_pct": 90.0,
+          "empty_markers": {},
+          "distinct_in_sample": 2,
+          "values": {
+            "Laubbäume": 1793,
+            "Nadelbäume": 7
+          }
+        },
+        "strnr": {
+          "present_pct": 100.0,
+          "filled_pct": 90.0,
+          "empty_markers": {},
+          "distinct_in_sample": 124,
+          "numeric": {
+            "n": 1800,
+            "min": 1.0,
+            "median": 4635.0,
+            "max": 48858.0,
+            "zero": 0
+          },
+          "top5": {
+            "42201": 120,
+            "01413": 114,
+            "44012": 86,
+            "44024": 83,
+            "04665": 77
+          }
+        },
+        "strname": {
+          "present_pct": 100.0,
+          "filled_pct": 90.0,
+          "empty_markers": {},
+          "distinct_in_sample": 123,
+          "top5": {
+            "Parkstraße": 120,
+            "Fritz-Erler-Allee": 114,
+            "Quedlinburger Straße": 86,
+            "Riesaer Straße": 83,
+            "Bismarckstraße": 81
+          }
+        },
+        "hausnr": {
+          "present_pct": 100.0,
+          "filled_pct": 58.8,
+          "empty_markers": {},
+          "distinct_in_sample": 253,
+          "numeric": {
+            "n": 976,
+            "min": 0.0,
+            "median": 23.0,
+            "max": 350.0,
+            "zero": 3
+          },
+          "top5": {
+            "1": 39,
+            "8": 38,
+            "3": 35,
+            "7": 32,
+            "10": 28
+          }
+        },
+        "zusatz": {
+          "present_pct": 100.0,
+          "filled_pct": 6.1,
+          "empty_markers": {
+            "  ": 1
+          },
+          "distinct_in_sample": 33,
+          "values": {
+            "Tief 26": 44,
+            "Kga": 14,
+            "(Parz": 11,
+            "- 35 (": 5,
+            "Mittelstreifen": 4,
+            "ggü": 4,
+            "A": 3,
+            "Mittelinsel": 2,
+            "gü.2": 2,
+            "gü.79": 2,
+            "gü.77": 2,
+            "gü. Schule": 2,
+            "114": 2,
+            "gü.75": 2,
+            "gü.71": 2
+          }
+        },
+        "pflanzjahr": {
+          "present_pct": 100.0,
+          "filled_pct": 89.95,
+          "empty_markers": {},
+          "distinct_in_sample": 110,
+          "numeric": {
+            "n": 1799,
+            "min": 1890.0,
+            "median": 1986.0,
+            "max": 2024.0,
+            "zero": 0
+          },
+          "top5": {
+            "1987": 90,
+            "2014": 89,
+            "1965": 87,
+            "2011": 79,
+            "2019": 72
+          }
+        },
+        "standalter": {
+          "present_pct": 100.0,
+          "filled_pct": 89.95,
+          "empty_markers": {},
+          "distinct_in_sample": 110,
+          "numeric": {
+            "n": 1799,
+            "min": 2.0,
+            "median": 40.0,
+            "max": 136.0,
+            "zero": 0
+          },
+          "top5": {
+            "39": 90,
+            "12": 89,
+            "61": 87,
+            "15": 79,
+            "7": 72
+          }
+        },
+        "kronedurch": {
+          "present_pct": 100.0,
+          "filled_pct": 67.0,
+          "empty_markers": {},
+          "distinct_in_sample": 51,
+          "numeric": {
+            "n": 1340,
+            "min": 0.0,
+            "median": 6.0,
+            "max": 21.0,
+            "zero": 159
+          },
+          "values": {
+            "0": 159,
+            "8": 144,
+            "10": 104,
+            "1": 99,
+            "5": 92,
+            "6": 85,
+            "2": 74,
+            "7": 73,
+            "4": 65,
+            "12": 62,
+            "3": 61,
+            "11": 46,
+            "14": 41,
+            "18": 36,
+            "9": 35
+          }
+        },
+        "stammumfg": {
+          "present_pct": 100.0,
+          "filled_pct": 90.0,
+          "empty_markers": {},
+          "distinct_in_sample": 262,
+          "numeric": {
+            "n": 1800,
+            "min": 0.0,
+            "median": 100.0,
+            "max": 557.0,
+            "zero": 1
+          },
+          "top5": {
+            "22": 36,
+            "30": 26,
+            "60": 23,
+            "136": 21,
+            "110": 21
+          }
+        },
+        "baumhoehe": {
+          "present_pct": 100.0,
+          "filled_pct": 79.9,
+          "empty_markers": {},
+          "distinct_in_sample": 37,
+          "numeric": {
+            "n": 1598,
+            "min": 0.0,
+            "median": 12.0,
+            "max": 32.0,
+            "zero": 8
+          },
+          "values": {
+            "12": 194,
+            "7": 149,
+            "15": 106,
+            "17": 96,
+            "6": 95,
+            "10": 91,
+            "14": 90,
+            "13": 86,
+            "25": 79,
+            "8": 73,
+            "9": 72,
+            "11": 72,
+            "18": 71,
+            "20": 64,
+            "16": 62
+          }
+        },
+        "eigentuemer": {
+          "present_pct": 100.0,
+          "filled_pct": 90.0,
+          "empty_markers": {},
+          "distinct_in_sample": 1,
+          "values": {
+            "Land Berlin": 1800
+          }
+        },
+        "bezirk": {
+          "present_pct": 100.0,
+          "filled_pct": 90.0,
+          "empty_markers": {},
+          "distinct_in_sample": 10,
+          "values": {
+            "Treptow-Köpenick": 239,
+            "Reinickendorf": 225,
+            "Neukölln": 208,
+            "Charlottenburg-Wilmersdorf": 205,
+            "Pankow": 205,
+            "Steglitz-Zehlendorf": 202,
+            "Tempelhof-Schöneberg": 202,
+            "Marzahn-Hellersdorf": 200,
+            "Lichtenberg": 107,
+            "Friedrichshain-Kreuzberg": 7
+          }
+        },
+        "strassenbaeume": {
+          "present_pct": 0.0,
+          "filled_pct": 0.0,
+          "empty_markers": {},
+          "distinct_in_sample": 0,
+          "values": {}
+        }
+      }
+    }
+  ],
+  "sample_sha256": "e6dc0b9977a9e4ec11c018ff091bee917d57d17b4f598df34c96f54ba5116395"
+}
