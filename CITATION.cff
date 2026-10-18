@@ -1,21 +1,25 @@
 cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
 title: "voro-tree-qa: quality checks for public tree registers (Baumkataster)"
-abstract: "Quality checks for the public tree register of the City of Zurich (81 142 trees, CC0), measured against the limits the city states for its own data. Every step is a prediction committed before the code and the run, then an outcome with a verdict per point. Version 0.1: reconnaissance of the public endpoints and the first measurement M0 (13 points, 11 confirmed, 2 refuted)."
+abstract: "Quality checks for three public tree registers of the DACH region: Zurich (81 142 trees, CC0), Wien (233 082 records) and Berlin (962 545 records, full WFS harvest, dl-zero-de/2.0), measured against what each city states about its own data. Every step is a prediction committed before the code and the run, then an outcome with a verdict per point; a refuted step is followed by a diagnosis before anything is used. Version 0.2: Wien (M0 8/12, D1 2/4) and Berlin (M0 9/14, D0 3/8, D1 6/7) added; Zurich unchanged since 0.1."
 type: software
 authors:
   - family-names: Ruszczak
     given-names: Marcin
     orcid: "https://orcid.org/0009-0004-0170-4277"
-version: "0.1"
+version: "0.2"
 doi: "10.5281/zenodo.23267379"
-date-released: "2026-10-09"
+date-released: "2026-10-18"
 repository-code: "https://github.com/MR73BIIO/voro-tree-qa"
 keywords:
   - tree register
   - Baumkataster
+  - Baumbestand
   - data quality
   - quality assurance
   - GIS
   - Zurich
+  - Wien
+  - Berlin
   - open data
+license: MIT
