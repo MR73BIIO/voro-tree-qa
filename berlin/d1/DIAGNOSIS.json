@@ -1,0 +1,101 @@
+{
+  "d1": "Baumbestand Berlin",
+  "measured_utc": "2026-10-18T16:13:56Z",
+  "prediction_sha256": "f00cc349e2461a9d78122f434cc59918a1422d40517ea2d8dd0488716cce0187",
+  "harvest_sha256": "844546b787250e62e2470e9596d2184abbd0a81275586a2c9da72731ec7ad25c",
+  "score": "6/7",
+  "verdict_overall": "REFUTED",
+  "decision": "DE post: facts released in D0_OUTCOME + CONFIRMED D1 facts (only new facts)",
+  "points": {
+    "E01": {
+      "question": "prefix cases among remaining mismatches",
+      "value": {
+        "pct": 91.061,
+        "prefix": 59054,
+        "remaining": 64851
+      },
+      "rule": ">= 70",
+      "verdict": "CONFIRMED"
+    },
+    "E02": {
+      "question": "other street % of compared trees",
+      "value": {
+        "pct": 1.363,
+        "other": 5797,
+        "compared": 425337
+      },
+      "rule": "<= 3",
+      "verdict": "CONFIRMED"
+    },
+    "E03": {
+      "question": "M0 mismatch trees in fully mismatching care objects",
+      "value": {
+        "pct": 99.774,
+        "in_full_objects": 66997,
+        "mismatch": 67149,
+        "objects_with_mismatch": 1285,
+        "fully_mismatching_objects": 1283
+      },
+      "rule": ">= 90",
+      "verdict": "CONFIRMED"
+    },
+    "E04": {
+      "question": "crown-0 trees inside crown-0 objects",
+      "value": {
+        "pct": 54.041,
+        "in_objects": 55863,
+        "crown0": 103372,
+        "crown0_objects": 823,
+        "objects": 12721
+      },
+      "rule": ">= 50",
+      "verdict": "CONFIRMED"
+    },
+    "E05": {
+      "question": "crown-0 share: highest vs lowest district",
+      "value": {
+        "max_pct": 60.36,
+        "min_pct": 0.23,
+        "ratio": 262.43,
+        "districts": 12
+      },
+      "rule": "max >= 5 x min",
+      "verdict": "CONFIRMED"
+    },
+    "E06": {
+      "question": "5 objects with most shared points hold share of 148",
+      "value": {
+        "pct": 77.703,
+        "top5": 115,
+        "shared_points": 148,
+        "objects": 31
+      },
+      "rule": ">= 50",
+      "verdict": "CONFIRMED"
+    },
+    "E07": {
+      "question": "shared points with trees from both layers",
+      "value": {
+        "pct": 0.0,
+        "mixed": 0,
+        "shared_points": 148
+      },
+      "rule": ">= 50",
+      "verdict": "REFUTED"
+    }
+  },
+  "crown0_by_district_pct": {
+    "Neukölln": 29.533,
+    "Charlottenburg-Wilmersdorf": 0.708,
+    "Steglitz-Zehlendorf": 10.669,
+    "Reinickendorf": 18.877,
+    "Spandau": 17.314,
+    "Tempelhof-Schöneberg": 60.36,
+    "Mitte": 5.525,
+    "Friedrichshain-Kreuzberg": 1.039,
+    "Pankow": 0.568,
+    "Marzahn-Hellersdorf": 0.305,
+    "Treptow-Köpenick": 0.23,
+    "Lichtenberg": 0.483
+  }
+}
