@@ -1,0 +1,107 @@
+{
+  "d0": "Baumbestand Berlin",
+  "measured_utc": "2026-10-18T15:34:23Z",
+  "prediction_sha256": "ce940481c4fd14cf0d296e9c22f8ca2ac867f9e5235372ea3ee7849b0f8dba8b",
+  "harvest_sha256": "844546b787250e62e2470e9596d2184abbd0a81275586a2c9da72731ec7ad25c",
+  "score": "3/8",
+  "verdict_overall": "REFUTED",
+  "decision": "D1",
+  "points": {
+    "D01": {
+      "question": "standalter empty where no year and not 0",
+      "value": {
+        "pct": 99.983,
+        "ok": 167429,
+        "n": 167457
+      },
+      "rule": ">= 90",
+      "verdict": "CONFIRMED"
+    },
+    "D02": {
+      "question": "'no year, age 0' in Anlagenbaeume",
+      "value": {
+        "pct": 99.71,
+        "ok": 20318,
+        "n": 20377
+      },
+      "rule": ">= 95",
+      "verdict": "CONFIRMED"
+    },
+    "D03": {
+      "question": "B04 exceptions: pflanzjahr + standalter in 2021-2025",
+      "value": {
+        "pct": 97.382,
+        "ok": 372,
+        "n": 382,
+        "sums": {
+          "2025": 326,
+          "2024": 15,
+          "2023": 11,
+          "2021": 11,
+          "2022": 9,
+          "2017": 2,
+          "2014": 2,
+          "19901": 2,
+          "2019": 1,
+          "2018": 1,
+          "2000111": 1,
+          "0": 1
+        }
+      },
+      "rule": ">= 90",
+      "verdict": "CONFIRMED"
+    },
+    "D04": {
+      "question": "B13 mismatches resolved by compact form",
+      "value": {
+        "pct": 3.422,
+        "ok": 2298,
+        "n": 67149
+      },
+      "rule": ">= 70",
+      "verdict": "REFUTED"
+    },
+    "D05": {
+      "question": "mismatches left after compact form % of compared trees",
+      "value": {
+        "pct": 15.247,
+        "left": 64851,
+        "compared": 425337
+      },
+      "rule": "<= 3",
+      "verdict": "REFUTED"
+    },
+    "D06": {
+      "question": "kronedurch = 0: baumhoehe 0 or empty",
+      "value": {
+        "pct": 26.723,
+        "ok": 27624,
+        "n": 103372
+      },
+      "rule": ">= 50",
+      "verdict": "REFUTED"
+    },
+    "D07": {
+      "question": "kronedurch = 0 share: young (2020-2026) vs year before 2020",
+      "value": {
+        "young_pct": 5.782,
+        "young_n": 27153,
+        "old_pct": 9.275,
+        "old_n": 741353,
+        "ratio": 0.62
+      },
+      "rule": "young >= 3 x old",
+      "verdict": "REFUTED"
+    },
+    "D08": {
+      "question": "shared points with one identical non-empty art_bot",
+      "value": {
+        "pct": 45.27,
+        "same": 67,
+        "shared_points": 148
+      },
+      "rule": ">= 80",
+      "verdict": "REFUTED"
+    }
+  }
+}
