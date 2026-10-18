@@ -1,7 +1,7 @@
 {
   "r0": "Baumbestand Berlin",
   "wfs": "https://gdi.berlin.de/services/wfs/baumbestand",
-  "measured_utc": "2026-10-18T14:26:49Z",
+  "measured_utc": "2026-10-18T14:31:25Z",
   "output_format": "application/json",
   "windows": 10,
   "sample_per_type": 2000,
@@ -84,10 +84,6 @@
         {
           "name": "geom",
           "type": "PointPropertyType"
-        },
-        {
-          "name": "anlagenbaeume",
-          "type": "anlagenbaeumeType"
         }
       ],
       "sample_size": 2000,
@@ -430,13 +426,6 @@
             "Treptow-Köpenick": 20,
             "Friedrichshain-Kreuzberg": 1
           }
-        },
-        "anlagenbaeume": {
-          "present_pct": 0.0,
-          "filled_pct": 0.0,
-          "empty_markers": {},
-          "distinct_in_sample": 0,
-          "values": {}
         }
       }
     },
@@ -533,10 +522,6 @@
         {
           "name": "geom",
           "type": "PointPropertyType"
-        },
-        {
-          "name": "strassenbaeume",
-          "type": "strassenbaeumeType"
         }
       ],
       "sample_size": 2000,
@@ -940,16 +925,9 @@
             "Lichtenberg": 107,
             "Friedrichshain-Kreuzberg": 7
           }
-        },
-        "strassenbaeume": {
-          "present_pct": 0.0,
-          "filled_pct": 0.0,
-          "empty_markers": {},
-          "distinct_in_sample": 0,
-          "values": {}
         }
       }
     }
   ],
-  "sample_sha256": "e6dc0b9977a9e4ec11c018ff091bee917d57d17b4f598df34c96f54ba5116395"
+  "sample_sha256": "b7196dae00cfa615749a9f428767087821649a450b96c40a5f12ae9ea8078de1"
 }

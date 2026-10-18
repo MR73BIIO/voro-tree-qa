@@ -101,9 +101,12 @@ def describe(type_name):
     save(f"describe_{safe(type_name)}.xsd", raw)
     root = ET.fromstring(raw)
     fields = []
-    for el in root.iter():
-        if local(el.tag) == "element" and el.get("name") and el.get("type"):
-            fields.append({"name": el.get("name"), "type": el.get("type").rsplit(":", 1)[-1]})
+    for ct in root.iter():                      # tylko pola wewnatrz complexType,
+        if local(ct.tag) != "complexType":       # bez elementu glownego warstwy
+            continue
+        for el in ct.iter():
+            if local(el.tag) == "element" and el.get("name") and el.get("type"):
+                fields.append({"name": el.get("name"), "type": el.get("type").rsplit(":", 1)[-1]})
     return fields
 
 
@@ -249,13 +252,16 @@ def cmd_recon(args):
     for t in types:
         name = t["name"]
         fields = describe(name)
+        print(f"{name}: licze obiekty (resultType=hits)...", flush=True)
         total = hits(name)
+        print(f"{name}: {total} obiektow", flush=True)
         time.sleep(SLEEP_S)
         feats = []
         if total:
             per = max(1, args.sample // WINDOWS)
             starts = sorted({int(i * max(0, total - per) / max(1, WINDOWS - 1)) for i in range(WINDOWS)})
-            for s in starts:
+            for k, s in enumerate(starts, 1):
+                print(f"  {name}: okno {k}/{len(starts)} (startIndex {s}, {per} obiektow)", flush=True)
                 raw, got = page(name, s, per, fmt, args.sortby)
                 h.update(raw)
                 save(f"sample_{safe(name)}_{s:08d}.{'json' if fmt else 'xml'}", raw)
